@@ -1,0 +1,411 @@
+\documentclass{beamer}
+\usepackage{environ}
+\usepackage{tikz}
+%\geometry{paperheight=9cm,paperwidth=16cm,margin=0cm}
+\geometry{margin=0cm}
+\usepackage{standalone}
+
+\usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[T1]{fontenc}
+
+\usepackage{ccicons}
+\usepackage{shadowtext}
+\shadowoffsetx{-1.5pt}
+\shadowoffsety{1.5pt}
+\colorlet{myshadow}{black}
+\colorlet{textcolor}{yellow}
+\shadowcolor{myshadow}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}{}
+\mode<presentation>
+
+\NewEnviron{slidef}[3]{% duation,image,license
+
+  \usebackgroundtemplate{\scalebox{-1}[1]{\includegraphics[width=\paperwidth]{#2}}}
+  \begin{frame}\transduration{#1}
+
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      %\node at (0,0) {\includegraphics[width=\textwidth]{#2}};
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\NewEnviron{slide}[3]{% duation,image,license
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{#2}}
+  \begin{frame}\transduration{#1}
+
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      %\node at (0,0) {\includegraphics[width=\textwidth]{#2}};
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\NewEnviron{slide*}[3]{% duation,image,license
+  \usebackgroundtemplate{\includegraphics[height=\paperheight]{#2}}
+  \begin{frame}\transduration{#1}
+
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      %\node at (0,0) {\includegraphics[width=\textwidth]{#2}};
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\begin{document}
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{3}{space.jpg}{\ccpd}
+  \node[] at (-.2cm,-.2cm) {\tikzset{draw/.append style={myshadow}}
+  \resizebox{.8\textwidth}{!}{\input{tikzLogo.tex}}};
+  \node[] at (0,0) {\tikzset{draw/.append style={textcolor}}
+  \resizebox{.8\textwidth}{!}{\input{tikzLogo.tex}}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+\begin{slide}{3}{computerAD.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+\end{slide}
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{3}{open.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+\begin{slide*}{3}{students.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+        INTERACTIVE!}}};
+\end{slide*}
+
+% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+\begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+\end{slide}
+
+\begin{slide}{1}{knuth.png}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
+\end{slide}
+
+\begin{slide}{1}{knuth.png}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
+  \node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf WRITE}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Donald_Knuth_1965.png
+\begin{slide}{3}{knuth.png}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
+  \node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf WRITE}}};
+  \node[textcolor] at (2,-3) {\scalebox{2}{\huge \shadowtext{\bf \TeX!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_Magic_Circle_%28cropped%29.JPG
+\begin{slide}{1}{magic.jpg}{\ccpd}
+  \node[textcolor] at (3,3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+\end{slide}
+
+\begin{slide}{1}{magic.jpg}{\ccpd}
+  \node[textcolor] at (3,3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+  \node[textcolor] at (3,0) {\scalebox{2}{\huge \shadowtext{\bf DEPLOYS}}};
+\end{slide}
+
+\begin{slide}{3}{magic.jpg}{\ccpd}
+  \node[textcolor] at (3,3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+  \node[textcolor] at (3,0) {\scalebox{2}{\huge \shadowtext{\bf DEPLOYS}}};
+  \node[textcolor] at (3,-3) {\scalebox{2}{\huge \shadowtext{\bf ONLINE!}}};
+\end{slide}
+
+% %https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+% \begin{slide}{3}{open.jpg}{\ccpd}
+%   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+% \end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Water_drops_on_spider_web.jpg#mw-jump-to-license
+\begin{slide*}{1}{web.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+\end{slide*}
+
+\begin{slide*}{1}{web.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+\end{slide*}
+
+\begin{slide*}{3}{web.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge\shadowtext{ \bf THE WEB!}}};
+\end{slide*}
+
+%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+\begin{slide*}{3}{students.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+        INTERACTIVE!}}};
+\end{slide*}
+
+% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+\begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+\begin{slide}{3}{computerAD.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+\end{slide}
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{3}{open.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:ENIAC-changing_a_tube.jpg
+\begin{slide}{1}{login.jpg}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf NO}}};
+\end{slide}
+
+\begin{slide}{1}{login.jpg}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf NO}}};
+  \node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf LOGGING}}};
+\end{slide}
+
+\begin{slide}{3}{login.jpg}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf NO}}};
+  \node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf LOGGING}}};
+  \node[textcolor] at (2,-3) {\scalebox{2}{\huge \shadowtext{\bf IN!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Heinrich_fueger_1817_prometheus_brings_fire_to_mankind.jpg
+\begin{slide}{1}{prometheus.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TAKE}}};
+\end{slide}
+
+\begin{slide}{1}{prometheus.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TAKE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf CONTENT}}};
+\end{slide}
+
+\begin{slide}{3}{prometheus.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TAKE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf CONTENT}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf NOW!}}};
+\end{slide}
+
+%https://en.wikipedia.org/wiki/File:J._M._Flagg,_I_Want_You_for_U.S._Army_poster_(1917).jpg
+\begin{slide}{1}{you.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TEACH}}};
+\end{slide}
+
+\begin{slide}{1}{you.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TEACH}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
+\end{slide}
+
+\begin{slide}{3}{you.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TEACH}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
+\end{slide}
+
+% %https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+% \begin{slide*}{3}{students.jpg}{\ccpd}
+%   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S INTERACTIVE!}}};
+% \end{slide*}
+
+%https://commons.wikimedia.org/wiki/File:Defense.gov_photo_essay_100713-A-5170O-167.jpg
+\begin{slide*}{1}{involved.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf BUILD}}};
+\end{slide*}
+
+\begin{slide*}{1}{involved.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf BUILD}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
+\end{slide*}
+
+\begin{slide*}{3}{involved.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf BUILD}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf US!}}};
+\end{slide*}
+
+%https://commons.wikimedia.org/wiki/File:Cash_money!_140606-A-CA521-021.jpg
+\begin{slide*}{1}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf WE}}};
+\end{slide*}
+
+\begin{slide*}{1}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf WE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf HAVE}}};
+\end{slide*}
+
+\begin{slide*}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf WE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf HAVE}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf CASH!}}};
+\end{slide*}
+
+% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+\begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+\end{slide}
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{3}{open.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+\begin{slide}{3}{computerAD.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+\begin{slide*}{3}{students.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+        INTERACTIVE!}}};
+\end{slide*}
+
+%https://commons.wikimedia.org/wiki/File:Cash_money!_140606-A-CA521-021.jpg
+\begin{slide*}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf CASH!}}};
+\end{slide*}
+
+\begin{slide}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
+\end{slide}
+
+\begin{slide*}{3}{involved.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf JOIN US!}}};
+\end{slide*}
+
+%https://en.wikipedia.org/wiki/File:J._M._Flagg,_I_Want_You_for_U.S._Army_poster_(1917).jpg
+\begin{slide}{1}{you.jpg}{\ccpd}
+  \node[myshadow] at (-.02,-1.5)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\ Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (.02,-1.5)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\ Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (0,-1.48)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\ Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (0,-1.52)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\ Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (.02,-1.52)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\ Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (-.02,-1.48)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\
+      Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (-.02,-1.52)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\ Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[myshadow] at (.02,-1.48)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\
+      Department
+      of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+  \node[yellow] at (0,-1.5)
+  {\begin{minipage}{.8\textwidth}\Large\bf%
+      The Ximera Project is
+      funded 2024-2026 with (no other external funding) by a U.S.\
+      Department of
+      Education \$2,125,000
+      Open Textbooks Pilot
+      Program grant. In the
+      past, the Ximera Project has also recieved support from NSF Grant
+      DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+      Department of Mathematics, and the Affordable Learning Exchange at
+      OSU.\end{minipage}};
+\end{slide}
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{3}{space.jpg}{\ccpd}
+  \node at (0,0) {\includegraphics[width=.5\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+\end{document}

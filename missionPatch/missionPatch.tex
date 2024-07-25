@@ -1,0 +1,74 @@
+\documentclass[tikz]{standalone}
+\usepackage{qrcode}
+\usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+
+\newcommand{\patchseries}{\sffamily\bfseries}
+\renewcommand{\large}{\scalebox{6}}
+
+
+\usetikzlibrary{decorations.text}
+\begin{document}
+\begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics{patch.png}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+      %% \node[white] at ({.43*cos(246)+.5},{.43*sin(246)+.5}) {\rotatebox{-24}{\scalebox{6}{\patchseries X}}};
+      %% \node[white] at ({.43*cos(255)+.5},{.43*sin(255)+.5}) {\rotatebox{-15}{\scalebox{6}{\patchseries I}}};
+      %% \node[white] at ({.43*cos(265)+.5},{.43*sin(265)+.5}) {\rotatebox{-5}{\scalebox{6}{\patchseries M}}};
+      %% \node[white] at ({.43*cos(275)+.5},{.43*sin(275)+.5}) {\rotatebox{5}{\scalebox{6}{\patchseries E}}};
+      %% \node[white] at ({.43*cos(285)+.5},{.43*sin(285)+.5}) {\rotatebox{15}{\scalebox{6}{\patchseries R}}};
+      %% \node[white] at ({.43*cos(294)+.5},{.43*sin(294)+.5}) {\rotatebox{24}{\scalebox{6}{\patchseries A}}};
+
+      \path[decorate, decoration={
+          text along path,
+          text={|\patchseries\color{white}\fontsize{60pt}{50pt}\selectfont|X\ \ \  I\ \  \ M\  \  \ E\ \  \ R\ \  \ A},
+          %text={|\patchseries\color{white}\fontsize{60pt}{50pt}\selectfont|XIMERA},
+          text align=center
+      }] (.05,.5) arc (180:360:.46);
+
+
+
+
+
+
+
+      \path[decorate, decoration={
+          text along path,
+          text={|\patchseries\color{white}\fontsize{30pt}{36pt}\selectfont|Interactive \ \ \ \  Mathematics \ \ \ \   Education \ \ \ \   Resources \ \ \ \   for All},
+          text align=center
+      }] (.05,.5) arc (180:0:.45);
+
+      %% \path[decorate, decoration={
+      %%     text along path,
+      %%     text={|\patchseries\color{white}\fontsize{30pt}{36pt}\selectfont|https://www.github.com/XimeraProject},
+      %%     text align=center
+      %% }] (.5,.95) arc (90:-40:.45);
+      
+      %% %\draw[blue] (.5,.95) arc (90:0:.45);
+
+
+
+
+      %% \path[decorate, decoration={
+      %%     text along path,
+      %%     text={|\patchseries\color{white}\fontsize{30pt}{36pt}\selectfont|https://ximera.osu.edu/mooculus},
+      %%     text align=center
+      %% }] (.11,.28) arc (210:90:.45);%(.05,.5) arc (210:90:.45);
+      
+      
+      
+      %\node[white] at ({.44*cos(235)+.5},{.44*sin(235)+.5}) {\rotatebox{-35}{\qrcode[height=1in]{https://ximera.osu.edu/mooculus}}};
+      
+      
+      %\node[white] at ({.44*cos(305)+.5},{.44*sin(305)+.5}) {\rotatebox{35}{\qrcode[height=1in]{https://www.github.com/XimeraProject}}};
+
+      
+      
+    \end{scope}
+\end{tikzpicture}
+\end{document}
+
+\begin{tikzpicture}
+
+\end{tikzpicture}
