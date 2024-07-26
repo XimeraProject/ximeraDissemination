@@ -2,27 +2,27 @@
 \usepackage{tikz}
 \usepackage{standalone}
 \usepackage[cm]{fullpage}
-\usepackage{courier}
-\usepackage{helvet}
+\usepackage{stix2}
+\usepackage{gillius}
 
 
 \usepackage{multicol}
 
-\usepackage[letterspace=-100]{microtype}
+\usepackage[letterspace=-80]{microtype}
 \begin{document}
 \pagenumbering{gobble}
 \sffamily\flushleft
 \hspace{-.3cm}\begin{tikzpicture}%
     \node at (0,0) {\tikzset{draw/.append style={black}}
     \resizebox{!}{.05\textheight}{\input{../wormLogo/tikzLogo.tex}}};
-    \node at (6.5,0) {\resizebox{!}{.05\textheight}{\lsstyle InfoSheet}};
+    \node at (6.4,0) {\resizebox{!}{.05\textheight}{\lsstyle Tech\! Brief}};
 \end{tikzpicture}\\
-Ximera: Interactive Mathematics Education \\Resources for All\\[.1cm]
-\rule{\textwidth}{.1cm}\\[.1cm]\ttfamily
-Email: ximera@math.osu.edu \hfill Website:
-https://github.com/ximeraProject/\\[1cm]
+Ximera: Interactive Mathematics Education  \\[-.1cm] Resources for All\hfill \textsl{MathFest} 2024: August 7--9\\[.1cm]
+\rule{\textwidth}{.1cm}\\[.1cm]\rmfamily
+Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt
+https://github.com/ximeraProject/}\\[1cm]
 \begin{multicols}{2}
-    Ximera, pronounced "chimera," is an
+    Ximera, pronounced ``chimera,'' is an
     open-source platform that provides tools for authoring and publishing
     (PDF and Online), open-source, interactive educational content, such
     as textbooks, assessments, and online courses.
@@ -39,9 +39,9 @@ https://github.com/ximeraProject/\\[1cm]
     With Ximera, authors use LaTeX to create their content. With this
     single source code, we generate different types of output: A PDF worksheet, an
     online interactive activity, and/or a PDF solution manual.
-    \begin{center}
-        \includegraphics[width=.4\textwidth]{SimultaneousOutput.jpg}
-    \end{center}
+    % \begin{center}
+    %     \includegraphics[width=.4\textwidth]{SimultaneousOutput.jpg}
+    % \end{center}
     \begin{center}
         \begin{tikzpicture}
             % \node at (-3,1) {\resizebox{.5cm}{!}{\input{document.tex}}};
@@ -50,21 +50,32 @@ https://github.com/ximeraProject/\\[1cm]
             % \node at (-3,0) {\tiny PDF};
             % \node at (-3,-1) {\resizebox{.5cm}{!}{\input{document.tex}}};
             % \node at (-3,-1) {\tiny PDF};
-            \node at (-2.8,.2) {\resizebox{.5cm}{!}{\input{document.tex}}};
-            \node at (-2.8,.2) {\tiny PDF};
-            \node at (-3,0) {\resizebox{.5cm}{!}{\input{document.tex}}};
-            \node at (-3,0) {\tiny PDF};
-            \node at (-3.2,-.2) {\resizebox{.5cm}{!}{\input{document.tex}}};
-            \node at (-3.2,-.2) {\tiny PDF};
-
+            \node at (-1.8,.2) {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-1.8,.2) {\small PDF};
+            \node at (-2,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-2,0) {\small PDF};
+            \node at (-2.2,-.2) {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-2.2,-.2) {\small PDF};
+            \draw[->] (-.6,0) -- (-1.4,0);
+            \draw[->] (-.6,.2) -- (-1.4,.2);
+            \draw[->] (-.6,-.2) -- (-1.4,-.2);
             \node at (0,0) {\resizebox{1cm}{!}{\input{document.tex}}};
             \node at (0,0) {\LaTeX};
+            \draw[->] (.6,0) -- (1.4,0);
 
-            \node at (3,0) {\resizebox{1.3cm}{!}{\input{server.tex}}};
-
+            \node at (2,0) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \draw[->] (2.6,0) -- (3.4,0);
+            \node at (4,0) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (-2,-1) {Various};
+            \node at (-2,-1.4) {PDFs};
+            \node at (0,-1) {Source};
+            \node at (2,-1) {Server};
+            \node at (4,-1) {Students}; 
+            \node at (4,-1.4) {Engage};
 
         \end{tikzpicture}
     \end{center}
+    The same source code used to produce a PDF can be deployed to a Ximera server, where it can be accessed by students.
     To get started as an author in Ximera, all you need is the XimeraLaTeX
     Package, which is available on CTAN.
     \\[.5cm]
@@ -83,15 +94,15 @@ https://github.com/ximeraProject/\\[1cm]
     Ximera is maintained by a community of people and we are always working. In
     particular: We are working to streamline the deploy process,
     make LTI 1.3 support widely available, and provide and accessible experience.
-    If you are interested in using Ximera or contributing to the effort, consider
+    If you are interested in using Ximera or contributing to the effort, either as an instrutor, an author, or a developer, consider
     applying for a \textbf{Ximera Flash-Grant Stipend} here:
     \begin{center}
-        https://go.osu.edu/ximera-flash-grant/
+      \tt  https://go.osu.edu/ximera-flash-grant/
     \end{center}
     Thank you for your interest in Ximera. We encouage you
     to contact the team with  any question you may have.
     \\[.5cm]
-    {\sffamily\bfseries Talks at MathFest with Ximera}\\
+    {\sffamily\bfseries Talks at \textsl{MathFest} with Ximera}\\
     \begin{itemize}
         \item[{[1]}] \textbf{Lines of Sight: Activities Related to Visual
             Perspective}. A.\ Davis; Thursday, August 8th, 10:20am--10:35am, Room 309/310,
