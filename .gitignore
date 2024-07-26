@@ -13,3 +13,6 @@
 *.toc
 *.snm
 *.eps
+*.fls
+*.synctex.gz
+*.fdb_latexmk
