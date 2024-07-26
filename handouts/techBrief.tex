@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{tikz}
+\usetikzlibrary{shapes}
 \usepackage{standalone}
 \usepackage[cm]{fullpage}
 \usepackage{stix2}
@@ -44,12 +45,6 @@ https://github.com/ximeraProject/}\\[1cm]
     % \end{center}
     \begin{center}
         \begin{tikzpicture}
-            % \node at (-3,1) {\resizebox{.5cm}{!}{\input{document.tex}}};
-            % \node at (-3,1) {\tiny PDF};
-            % \node at (-3,0) {\resizebox{.5cm}{!}{\input{document.tex}}};
-            % \node at (-3,0) {\tiny PDF};
-            % \node at (-3,-1) {\resizebox{.5cm}{!}{\input{document.tex}}};
-            % \node at (-3,-1) {\tiny PDF};
             \node at (-1.8,.2) {\resizebox{.65cm}{!}{\input{document.tex}}};
             \node at (-1.8,.2) {\small PDF};
             \node at (-2,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
@@ -68,7 +63,8 @@ https://github.com/ximeraProject/}\\[1cm]
             \node at (4,0) {\resizebox{1cm}{!}{\input{computer.tex}}};
             \node at (-2,-1) {Various};
             \node at (-2,-1.4) {PDFs};
-            \node at (0,-1) {Source};
+            \node at (0,-1) {Single};
+            \node at (0,-1.4) {Source};
             \node at (2,-1) {Server};
             \node at (4,-1) {Students}; 
             \node at (4,-1.4) {Engage};
@@ -94,6 +90,23 @@ https://github.com/ximeraProject/}\\[1cm]
     Ximera is maintained by a community of people and we are always working. In
     particular: We are working to streamline the deploy process,
     make LTI 1.3 support widely available, and provide and accessible experience.
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120, aspect=2, inner ysep=1em,scale=.8] {};
+            \node at (-2,1) {LMS};
+            \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+
+            \node at (0,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
+
+            \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+
+
+        \end{tikzpicture}
+    \end{center}
+
+
+
     If you are interested in using Ximera or contributing to the effort, either as an instrutor, an author, or a developer, consider
     applying for a \textbf{Ximera Flash-Grant Stipend} here:
     \begin{center}
