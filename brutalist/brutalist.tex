@@ -6,7 +6,18 @@
 \usepackage{standalone}
 
 \usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+
+% \DeclareFontFamily{T1}{lmttc}{\hyphenchar \font-1 }
+% \DeclareFontShape{T1}{lmttc}{m}{n}
+%      {<-> ec-lmtlc10}{}
+% \DeclareFontShape{T1}{lmttc}{m}{it}
+%      {<->sub*lmttc/m/sl}{}
+% \DeclareFontShape{T1}{lmttc}{m}{sl}
+%      {<-> ec-lmtlco10}{}
+% \renewcommand{\ttdefault}{lmttc}
+
 \usepackage[T1]{fontenc}
+
 
 \usepackage{ccicons}
 \usepackage{shadowtext}
@@ -164,15 +175,16 @@
         INTERACTIVE!}}};
 \end{slide*}
 
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{3}{open.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+
 % %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
 \begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
 \end{slide}
-
-
-\input{selectAllCodeBlock}
-
-
 
 
 %https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
@@ -180,10 +192,35 @@
   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
 \end{slide}
 
-%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
-\begin{slide}{3}{open.jpg}{\ccpd}
-  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
-\end{slide}
+
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{3}{space.jpg}{\ccpd}
+  \node at (0,0) {\includegraphics[width=.5\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+
+
+
+
+
+
+\input{selectAllCodeBlock}
+
+
+
+
+
+
+
+
+
+
+
 
 %https://commons.wikimedia.org/wiki/File:ENIAC-changing_a_tube.jpg
 \begin{slide}{1}{login.jpg}{\ccpd}
@@ -300,6 +337,18 @@
   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
   \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
+\end{slide}
+
+\begin{slide}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf PRINT}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf COPIES}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf TOO!}}};
+\end{slide}
+
+\begin{slide}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SEE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf CONTENT!}}};
 \end{slide}
 
 \begin{slide*}{3}{involved.jpg}{\ccpd}
