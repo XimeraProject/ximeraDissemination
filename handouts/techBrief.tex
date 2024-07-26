@@ -24,14 +24,14 @@ Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt
 https://github.com/ximeraProject/}\\[1cm]
 \begin{multicols}{2}
     Ximera, pronounced ``chimera,'' is a free and
-    open-source platform that provides tools for authoring and publishing
-    open-source, interactive educational content, such
-    as textbooks, assessments, and online courses. Currently, Ximera materials
-    are used at around a dozen institutions. Even with the most consertative
-    estimates, Ximera materials save students over one million dollars per
-    year.
-    The ultimate goal of this project is to promote
-    sustained student success and savings.\\[.3cm]
+    open-source platform offering tools for authoring and publishing
+    interactive educational content, including textbooks, assessments, and
+    online
+    courses. Currently, Ximera materials are utilized at approximately a dozen
+    institutions. Even with the most conservative estimates, Ximera saves
+    students
+    over one million dollars annually. The ultimate goal of this project is to
+    promote sustained student success and savings.\\[.3cm]
 
     The Ximera Project is funded 2024--2026 with (no other external funding) by
     a U.S.\ Department of Education \$2,125,000
@@ -41,9 +41,11 @@ https://github.com/ximeraProject/}\\[1cm]
     Department of Mathematics, and the Affordable Learning Exchange at OSU.
     \\[.5cm]
     {\sffamily\bfseries Authors}\\
-    With Ximera, authors use \LaTeX\ to create their content. With this
-    single source code, we generate different types of output: A PDF worksheet,
-    an	online interactive activity, and/or a PDF solution manual.
+    With Ximera, authors use \LaTeX\ to create their content. From this single
+    source code, we generate various output, for example: PDF worksheets, PDF
+    textbooks, and	PDF solution manuals, and so on. However, Ximera can
+    also create
+    online interactive activities:
     % \begin{center}
     %     \includegraphics[width=.4\textwidth]{SimultaneousOutput.jpg}
     % \end{center}
@@ -77,50 +79,61 @@ https://github.com/ximeraProject/}\\[1cm]
         \end{tikzpicture}
     \end{center}
     The same source code used to produce a PDF can be deployed to a Ximera
-    server, where it can be accessed by students. Since authors write in
-    \LaTeX, getting started with Ximera is easy, all you need is the
-    XimeraLaTeX
-    Package, which is available on CTAN.
+    server, where it can be accessed by students. Getting started with Ximera
+    is
+    easy---all you need is the XimeraLaTeX Package, available on CTAN.
     \\[.5cm]
     {\sffamily\bfseries Instructors}\\
     Instructors (who are not authors) can freely use any Ximera materials,
-    \textbf{without permission}, simply by using the URL of the
-    Ximera activity. See our website for an incomplete list of Ximera
-    courses that have been
-    deployed online.
-    \\[.5cm]\columnbreak
+    \textbf{without permission}, by simply using the URL of the Ximera
+    activity. Visit our website for an incomplete list of Ximera courses that
+    have
+    been deployed online.
+    \\[.5cm]%\columnbreak
     {\sffamily\bfseries Students}\\
-    While students typically learn about Ximera from their courses, there are
-    also a fair number who use Ximera as independent learners.
-    Since Ximera materials are free, learners can use any of the materials they
-    find, even if they are not enrolled in an official course.
+    While students typically learn about Ximera through their courses, many
+    also use Ximera as independent learners. Since Ximera materials are free,
+    anyone can access and use them, regardless of enrollment in an official course.
     \\[.5cm]
     {\sffamily\bfseries Current Development}\\
     Ximera is maintained by a dedicated community, continuously striving for
     improvement. Our current efforts focus on: streamlining the deployment
     process and   making LTI 1.3 support widely available. To this end, we are
     developing our
-    deploy process in Docker and we are designing an assignment-grade database
+    deploy process using Docker and we are designing an assignment-grade database
     to
-    seamlessly serve  learners at institutions supporting LTI 1.3, while also
-    offering
-    alternatives for self-learners and scenarios where LTI 1.3 is not
-    available.
+    seamlessly serve  learners at institutions supporting LTI 1.3,
     \begin{center}
         \begin{tikzpicture}
             \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120,
                 aspect=2, inner ysep=1em,scale=.8] {};
             \node at (-3,1) {LMS};
             \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
-
+            \node at (-3,-2) {Students with LTI};
+            \draw[->] (-3.1,-.4) -- (-3.1,.4);
+            \draw[<-] (-2.9,-.4) -- (-2.9,.4);
             \node at (0,0) {\resizebox{1cm}{!}{\input{modulus.tex}}};
-
+            \node at (0,-1) {Assignment};
+            \node at (0,-1.4) {Database};
+            \draw[->] (-2,.8) -- (-.6,.2);
+            \draw[<-] (-2.1,.6) -- (-.7,0);
             \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \node at (3,-2) {Deploy};
+            \node at (3,-2.4) {Server};
             \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
-
+            \node at (3,2) {Self-learner};
+            \draw[->] (3.1,-.4) -- (3.1,.4);
+            \draw[<-] (2.9,-.4) -- (2.9,.4);
+            \draw[->] (2,.8) -- (.6,.2);
+            \draw[<-] (2.1,.6) -- (.7,0);
+            \draw[->] (2.3,-1) -- (.6,-.4);
+            \draw[<-] (2.4,-.8) -- (.7,-.2);
         \end{tikzpicture}
     \end{center}
-
+    while also offering alternatives for self-learners and scenarios where LTI 1.3 is not
+    available.
+    \\[.5cm]
+    {\sffamily\bfseries Get Involved}\\
     If you are interested in using Ximera or contributing to the effort, either
     as an instrutor, an author, or a developer, consider
     applying for a \textbf{Ximera Flash-Grant Stipend} here:
