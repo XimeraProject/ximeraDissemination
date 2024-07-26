@@ -1,8 +1,8 @@
 \documentclass{beamer}
 \usepackage{environ}
 \usepackage{tikz}
-%\geometry{paperheight=9cm,paperwidth=16cm,margin=0cm}
-\geometry{margin=0cm}
+\geometry{paperheight=9cm,paperwidth=16cm,margin=0cm}
+%\geometry{margin=0cm}
 \usepackage{standalone}
 
 \usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
@@ -81,26 +81,26 @@
       Domain: \ccpd}};
 \end{slidef}
 
-%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
-\begin{slide}{3}{computerAD.jpg}{\ccpd}
-  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
-\end{slide}
+% %https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+% \begin{slide}{3}{computerAD.jpg}{\ccpd}
+%   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+% \end{slide}
 
-%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
-\begin{slide}{3}{open.jpg}{\ccpd}
-  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
-\end{slide}
+% %https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+% \begin{slide}{3}{open.jpg}{\ccpd}
+%   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+% \end{slide}
 
-%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
-\begin{slide*}{3}{students.jpg}{\ccpd}
-  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
-        INTERACTIVE!}}};
-\end{slide*}
+% %https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+% \begin{slide*}{3}{students.jpg}{\ccpd}
+%   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+%         INTERACTIVE!}}};
+% \end{slide*}
 
-% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
-\begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
-  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
-\end{slide}
+% % %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+% \begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
+%   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+% \end{slide}
 
 \begin{slide}{1}{knuth.png}{\ccpd}
   \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
@@ -118,23 +118,7 @@
   \node[textcolor] at (2,-3) {\scalebox{2}{\huge \shadowtext{\bf \TeX!}}};
 \end{slide}
 
-
-\begin{slideb}{3}
-  \node[textcolor,right] at (-6,3) {\scalebox{1.2}{\tt \color{cyan}\textbackslash documentclass\color{green}\{\color{textcolor}ximera\color{green}\}}};%
-  \node[textcolor,right] at (-6,2.5) {\scalebox{1.2}{\tt \color{cyan}\textbackslash begin\color{green}\{\color{white}document\color{green}\}}};%
-  \node[textcolor,right] at (-6,2) {\scalebox{1.2}{\tt \color{cyan}\textbackslash begin\color{green}\{\color{white}exercise\color{green}\}}};%
-  \node[textcolor,right] at (-5,1.5) {\scalebox{1.2}{\tt \color{white} Let \color{magenta}\$\color{textcolor}x\color{magenta}\$
-  \color{white}be the number of people out of \color{magenta}\$\color{textcolor}100\color{magenta}\$}};%
-  \node[textcolor,right] at (-5,1) {\scalebox{1.2}{\tt \color{white} who LOVE Ximera.}};%
-  \node[textcolor,right] at (-5,0) {\scalebox{1.2}{\tt \color{white} Find the value of \color{magenta}\$\color{textcolor}x\color{magenta}\$\color{white}.}};%
-  \node[textcolor,right] at (-5,-.5) {\scalebox{1.2}{\tt \textbackslash$[$}};
-  \node[textcolor,right] at (-4,-1) {\scalebox{1.2}{\tt x = \textbackslash answer\{100\}}};
-  \node[textcolor,right] at (-5,-1.5) {\scalebox{1.2}{\tt \textbackslash$]$}};
-  \node[textcolor,right] at (-6,-2) {\scalebox{1.2}{\tt \color{cyan}\textbackslash end\color{green}\{\color{white}exercise\color{green}\}}};%
-  \node[textcolor,right] at (-6,-2.5) {\scalebox{1.2}{\tt \color{cyan}\textbackslash end\color{green}\{\color{white}document\color{green}\}}};%
-\end{slideb}
-
-
+\input{answerCodeBlock}
 
 
 %https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_Magic_Circle_%28cropped%29.JPG
@@ -184,6 +168,12 @@
 \begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
 \end{slide}
+
+
+\input{selectAllCodeBlock}
+
+
+
 
 %https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
 \begin{slide}{3}{computerAD.jpg}{\ccpd}
