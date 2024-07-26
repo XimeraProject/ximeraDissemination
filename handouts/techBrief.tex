@@ -5,7 +5,7 @@
 \usepackage[cm]{fullpage}
 \usepackage{stix2}
 \usepackage{gillius}
-
+\tikzset{>=stealth}
 
 \usepackage{multicol}
 
@@ -93,10 +93,10 @@ https://github.com/ximeraProject/}\\[1cm]
     \begin{center}
         \begin{tikzpicture}
             \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120, aspect=2, inner ysep=1em,scale=.8] {};
-            \node at (-2,1) {LMS};
+            \node at (-3,1) {LMS};
             \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
 
-            \node at (0,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (0,0) {\resizebox{1cm}{!}{\input{modulus.tex}}};
 
             \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
             \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
