@@ -2,11 +2,10 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes}
 \usepackage{standalone}
-\usepackage[cm]{fullpage}
+\usepackage[cm,empty]{fullpage}
 \usepackage{stix2}
 \usepackage{gillius}
 \tikzset{>=stealth}
-
 \usepackage{multicol}
 
 \usepackage[letterspace=-80]{microtype}
@@ -18,28 +17,33 @@
     \resizebox{!}{.05\textheight}{\input{../wormLogo/tikzLogo.tex}}};
     \node at (6.4,0) {\resizebox{!}{.05\textheight}{\lsstyle Tech\! Brief}};
 \end{tikzpicture}\\
-Ximera: Interactive Mathematics Education  \\[-.1cm] Resources for All\hfill \textsl{MathFest} 2024: August 7--9\\[.1cm]
+Ximera: Interactive Mathematics Education  \\[-.1cm] Resources for All\hfill
+\textsl{MathFest} 2024: August 7--9\\[.1cm]
 \rule{\textwidth}{.1cm}\\[.1cm]\rmfamily
 Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt
 https://github.com/ximeraProject/}\\[1cm]
 \begin{multicols}{2}
-    Ximera, pronounced ``chimera,'' is an
+    Ximera, pronounced ``chimera,'' is a free and
     open-source platform that provides tools for authoring and publishing
-    (PDF and Online), open-source, interactive educational content, such
-    as textbooks, assessments, and online courses.
-    The Ximera Project is
-    funded 2024-2026 with (no other external funding) by a U.S.\ Department of
-    Education \$2,125,000
-    Open Textbooks Pilot
-    Program grant. In the
-    past, the Ximera Project has also recieved support from NSF Grant
+    open-source, interactive educational content, such
+    as textbooks, assessments, and online courses. Currently, Ximera materials
+    are used at around a dozen institutions. Even with the most consertative
+    estimates, Ximera materials save students over one million dollars per
+    year.
+    The ultimate goal of this project is to promote
+    sustained student success and savings.\\[.3cm]
+
+    The Ximera Project is funded 2024--2026 with (no other external funding) by
+    a U.S.\ Department of Education \$2,125,000
+    Open Textbooks Pilot Program grant. In the past, the Ximera Project has
+    also recieved support from NSF Grant
     DUE-1245433, the Shuttleworth Foundation, the Ohio State University
-    Department of Mathematics, and the Affordable Learning Exchange at
-    OSU.\\[.5cm]
+    Department of Mathematics, and the Affordable Learning Exchange at OSU.
+    \\[.5cm]
     {\sffamily\bfseries Authors}\\
-    With Ximera, authors use LaTeX to create their content. With this
-    single source code, we generate different types of output: A PDF worksheet, an
-    online interactive activity, and/or a PDF solution manual.
+    With Ximera, authors use \LaTeX\ to create their content. With this
+    single source code, we generate different types of output: A PDF worksheet,
+    an	online interactive activity, and/or a PDF solution manual.
     % \begin{center}
     %     \includegraphics[width=.4\textwidth]{SimultaneousOutput.jpg}
     % \end{center}
@@ -65,34 +69,47 @@ https://github.com/ximeraProject/}\\[1cm]
             \node at (-2,-1.4) {PDFs};
             \node at (0,-1) {Single};
             \node at (0,-1.4) {Source};
-            \node at (2,-1) {Server};
-            \node at (4,-1) {Students}; 
+            \node at (2,-1) {Deploy};
+            \node at (2,-1.4) {Server};
+            \node at (4,-1) {Students};
             \node at (4,-1.4) {Engage};
 
         \end{tikzpicture}
     \end{center}
-    The same source code used to produce a PDF can be deployed to a Ximera server, where it can be accessed by students.
-    To get started as an author in Ximera, all you need is the XimeraLaTeX
+    The same source code used to produce a PDF can be deployed to a Ximera
+    server, where it can be accessed by students. Since authors write in
+    \LaTeX, getting started with Ximera is easy, all you need is the
+    XimeraLaTeX
     Package, which is available on CTAN.
     \\[.5cm]
     {\sffamily\bfseries Instructors}\\
     Instructors (who are not authors) can freely use any Ximera materials,
     \textbf{without permission}, simply by using the URL of the
-    course. See our website for an incomplete list of Ximera
+    Ximera activity. See our website for an incomplete list of Ximera
     courses that have been
     deployed online.
-    \\[.5cm]
+    \\[.5cm]\columnbreak
     {\sffamily\bfseries Students}\\
-    Ximera materials are free. Students can use any of the materials they
-    find, even if the student is not enrolled in a course.
+    While students typically learn about Ximera from their courses, there are
+    also a fair number who use Ximera as independent learners.
+    Since Ximera materials are free, learners can use any of the materials they
+    find, even if they are not enrolled in an official course.
     \\[.5cm]
     {\sffamily\bfseries Current Development}\\
-    Ximera is maintained by a community of people and we are always working. In
-    particular: We are working to streamline the deploy process,
-    make LTI 1.3 support widely available, and provide and accessible experience.
+    Ximera is maintained by a dedicated community, continuously striving for
+    improvement. Our current efforts focus on: streamlining the deployment
+    process and   making LTI 1.3 support widely available. To this end, we are
+    developing our
+    deploy process in Docker and we are designing an assignment-grade database
+    to
+    seamlessly serve  learners at institutions supporting LTI 1.3, while also
+    offering
+    alternatives for self-learners and scenarios where LTI 1.3 is not
+    available.
     \begin{center}
         \begin{tikzpicture}
-            \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120, aspect=2, inner ysep=1em,scale=.8] {};
+            \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120,
+                aspect=2, inner ysep=1em,scale=.8] {};
             \node at (-3,1) {LMS};
             \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
 
@@ -101,29 +118,34 @@ https://github.com/ximeraProject/}\\[1cm]
             \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
             \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
 
-
         \end{tikzpicture}
     \end{center}
 
-
-
-    If you are interested in using Ximera or contributing to the effort, either as an instrutor, an author, or a developer, consider
+    If you are interested in using Ximera or contributing to the effort, either
+    as an instrutor, an author, or a developer, consider
     applying for a \textbf{Ximera Flash-Grant Stipend} here:
     \begin{center}
-      \tt  https://go.osu.edu/ximera-flash-grant/
+        \tt  https://go.osu.edu/ximera-flash-grant/
     \end{center}
     Thank you for your interest in Ximera. We encouage you
-    to contact the team with  any question you may have.
+    to contact the team with  any questions you may have.
     \\[.5cm]
     {\sffamily\bfseries Talks at \textsl{MathFest} with Ximera}\\
     \begin{itemize}
         \item[{[1]}] \textbf{Lines of Sight: Activities Related to Visual
-            Perspective}. A.\ Davis; Thursday, August 8th, 10:20am--10:35am, Room 309/310,
+            Perspective}. A.\ Davis; Thursday, August 8th, 10:20am--10:35am,
+        Room 309/310,
         \textit{New Twists on Your Favorite Math Circle Activity Part A}.
-        \item[{[2]}] \textbf{Ximera in the Classroom}. B.\ Snapp and J.\ Fowler;
-        Friday, August 9th, 3:40pm--3:55pm, Room 313, \textit{Open-Source Products for
+        \item[{[2]}] \textbf{Ximera in the Classroom}. B.\ Snapp and J.\
+        Fowler;
+        Friday, August 9th, 3:40pm--3:55pm, Room 313, \textit{Open-Source
+            Products for
             the Advancement of Math Education Research and Practice}.
     \end{itemize}
-
 \end{multicols}
+\vfill
+\sffamily\tiny\textbf{XIMERA\quad FORM \quad 1729 \quad GIT \quad COMMIT \quad
+    \input{../.git/refs/heads/master} \quad PREVIOUS \quad EDITION \quad IS
+    \quad
+    OBSOLETE.}
 \end{document}
