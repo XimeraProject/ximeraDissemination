@@ -2,10 +2,11 @@
 \usepackage{environ}
 \usepackage{tikz}
 \geometry{paperheight=9cm,paperwidth=16cm,margin=0cm}
-\geometry{margin=0cm}
+%\geometry{margin=0cm}
 \usepackage{standalone}
 
 \usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+
 
 % \DeclareFontFamily{T1}{lmttc}{\hyphenchar \font-1 }
 % \DeclareFontShape{T1}{lmttc}{m}{n}
@@ -354,22 +355,27 @@
 
 %https://commons.wikimedia.org/wiki/File:Heinrich_fueger_1817_prometheus_brings_fire_to_mankind.jpg
 \begin{slide}{1}{prometheus.jpg}{\ccpd}
-  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TAKE}}};
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STEAL}}};
 \end{slide}
 
 \begin{slide}{1}{prometheus.jpg}{\ccpd}
-  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TAKE}}};
-  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf CONTENT}}};
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STEAL}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf OUR}}};
 \end{slide}
 
 \begin{slide}{3}{prometheus.jpg}{\ccpd}
-  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf TAKE}}};
-  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf CONTENT}}};
-  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf NOW!}}};
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STEAL}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf OUR}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf CODE!}}};
 \end{slide}
 
+\begin{slide*}{3}{github.png}{\ccpd}
+\end{slide*}
 
 
+\begin{slideb}{1}
+  \node at(0,0){};
+  \end{slideb}
 
 \input{selectAllCodeBlock}
 
@@ -417,6 +423,12 @@
   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
   \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
 \end{slide}
+
+\begin{slidew}{3}
+  \input{schools.tex}
+\end{slidew}  
+
+
 
 % %https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
 % \begin{slide*}{3}{students.jpg}{\ccpd}
@@ -482,89 +494,44 @@
 \end{slide*}
 
 
-EMBED 
-GEOGEBRA!
+%https://commons.wikimedia.org/wiki/File:Ornament_Vouli,_inside_hellenic_Parliament,_Athens,_Greece.jpg
+\begin{slide}{1}{embed.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf EMBED 
+GEOGEBRA!}}};
+\end{slide}
 
-EMBED
-DESMOS!
+
+\begin{slide}{1}{embed.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf EMBED 
+DESMOS!}}};
+\end{slide}
+
+\begin{slide}{1}{embed.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf EMBED 
+SAGE!}}};
+\end{slide}
 
 
 \begin{slidew}{1}
-\node at (-.35\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/LCC.png}};
-\node at (-.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/UCONN.png}};
-\node at (-.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CCU.png}};
-\node at (-.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/NYCCT.png}};
-
-\node at (0\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/UF.png}};
-\node at (0\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/CSCC.png}};
-\node at (0\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CSUS.png}};
-\node at (0\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/ERAU.png}};
-
-\node at (.35\textwidth,.3\textheight) {\includegraphics[height=.1\textheight]{schools/KUL.png}};
-\node at (.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/OSU.png}};
-\node at (.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/ODU.jpg}};
-\node at (.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/Yale.png}};
+\input{schools.tex}
 \end{slidew}
 
 
 \begin{slidew}{1}
-  \node at (-.35\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/LCC.png}};
-  \node at (-.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/UCONN.png}};
-  \node at (-.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CCU.png}};
-  \node at (-.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/NYCCT.png}};
-  
-  \node at (0\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/UF.png}};
-  \node at (0\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/CSCC.png}};
-  \node at (0\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CSUS.png}};
-  \node at (0\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/ERAU.png}};
-  
-  \node at (.35\textwidth,.3\textheight) {\includegraphics[height=.1\textheight]{schools/KUL.png}};
-  \node at (.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/OSU.png}};
-  \node at (.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/ODU.jpg}};
-  \node at (.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/Yale.png}};
+\input{schools.tex}
 
   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
   \end{slidew}
 
   \begin{slidew}{1}
-    \node at (-.35\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/LCC.png}};
-    \node at (-.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/UCONN.png}};
-    \node at (-.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CCU.png}};
-    \node at (-.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/NYCCT.png}};
-    
-    \node at (0\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/UF.png}};
-    \node at (0\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/CSCC.png}};
-    \node at (0\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CSUS.png}};
-    \node at (0\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/ERAU.png}};
-    
-    \node at (.35\textwidth,.3\textheight) {\includegraphics[height=.1\textheight]{schools/KUL.png}};
-    \node at (.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/OSU.png}};
-    \node at (.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/ODU.jpg}};
-    \node at (.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/Yale.png}};
+\input{schools.tex}
   
     \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
     \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
     \end{slidew}
 
     \begin{slidew}{3}
-      \node at (-.35\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/LCC.png}};
-      \node at (-.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/UCONN.png}};
-      \node at (-.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CCU.png}};
-      \node at (-.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/NYCCT.png}};
-      
-      \node at (0\textwidth,.3\textheight) {\includegraphics[height=.07\textheight]{schools/UF.png}};
-      \node at (0\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/CSCC.png}};
-      \node at (0\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/CSUS.png}};
-      \node at (0\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/ERAU.png}};
-      
-      \node at (.35\textwidth,.3\textheight) {\includegraphics[height=.1\textheight]{schools/KUL.png}};
-      \node at (.35\textwidth,.1\textheight) {\includegraphics[height=.2\textheight]{schools/OSU.png}};
-      \node at (.35\textwidth,-.15\textheight) {\includegraphics[height=.2\textheight]{schools/ODU.jpg}};
-      \node at (.35\textwidth,-.4\textheight) {\includegraphics[height=.2\textheight]{schools/Yale.png}};
-    
-      \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
-      \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
-      \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
+\input{schools.tex}
       \end{slidew}
 
 
