@@ -10,5 +10,9 @@ https://www.tug.org/tug2024/slides/obbels-ximera.pdf
 ## MathFest 2024
 August 7th - 10th, 2024. Indianapolis, Indiana.
 - Ximera Booth
+  - Slideshow
+  - TechBrief
+  - QR Codes with links to courses
+  - TV: with youtube video https://www.youtube.com/watch?v=Ek2-eL7E4X0
 - Snapp and Fowler
 - Anna Davis
