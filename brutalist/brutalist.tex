@@ -1,6 +1,9 @@
 \documentclass{beamer}
 \usepackage{environ}
 \usepackage{tikz}
+\usetikzlibrary{shapes}
+\tikzset{>=stealth}
+
 \geometry{paperheight=9cm,paperwidth=16cm,margin=0cm}
 %\geometry{margin=0cm}
 \usepackage{standalone}
@@ -27,6 +30,9 @@
 \colorlet{myshadow}{black}
 \colorlet{textcolor}{yellow}
 \shadowcolor{myshadow}
+
+\definecolor{secretcr}{RGB}{0,255, 255}
+
 
 % remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -778,5 +784,57 @@ SAGE!}}};
   \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
       Domain: \ccpd}};
 \end{slidef}
+
+\foreach \i in {0,.1,...,1} {
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{.1}{space.jpg}{\ccpd}
+  \node at (0,0) {\includegraphics[width=.4\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+  \draw[fill=black,opacity={\i}] (-10,-6) rectangle (10,6);
+\end{slidef}}
+
+
+
+\begin{slideb}{1}
+\end{slideb}
+
+\begin{slideb}{.1}
+  \input{premod.tex}
+ \end{slideb}
+ 
+ \begin{slideb}{.3}
+ \end{slideb}
+
+ \begin{slideb}{.3}
+  \input{premod.tex}
+ \end{slideb}
+ 
+ \begin{slideb}{.1}
+ \end{slideb}
+
+ \begin{slideb}{3}
+  \input{premod.tex}
+ \end{slideb}
+ 
+
+\foreach \i in {0,.1,...,1} {
+\begin{slideb}{.1}
+  \input{premod}
+  \draw[fill=black,opacity={\i}] (-10,-10) rectangle (10,10);
+  \node[opacity=\i] at (0,0) {
+    \includegraphics[width=.6\textwidth]{mx.jpg}};
+  \node[secretcr,opacity=\i] at (0,-4) {\Huge MODULUS IS COMING};
+\end{slideb}
+}
+
+\begin{slideb}{3}
+  \node[opacity=1] at (0,0) {
+    \includegraphics[width=.6\textwidth]{mx.jpg}};
+  \node[secretcr] at (0,-4) {\Huge MODULUS IS COMING};
+\end{slideb}
+
 
 \end{document}
