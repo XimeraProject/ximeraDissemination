@@ -3,7 +3,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes}
 \usepackage{standalone}
-\usepackage[includehead,includefoot,margin=1cm,headheight=3cm]{geometry}
+\usepackage[includehead,includefoot,margin=1cm,headheight=1cm]{geometry}
 \usepackage{stix2}
 \usepackage{gillius}
 \tikzset{>=stealth}
@@ -27,7 +27,8 @@ https://github.com/ximeraProject/}}
 \fancyfoot[L]{\sffamily\tiny\textbf{XIMERA\quad FORM \quad 1729 \quad GIT \quad
         COMMIT \quad
         \input{../.git/refs/heads/master} \quad PREVIOUS \quad EDITION \quad IS
-        \quad OBSOLETE.}}}
+        \quad OBSOLETE.}
+}}
 
 \fancypagestyle{main}{%
 \fancyhead[L]{\sffamily\flushleft
@@ -50,203 +51,203 @@ https://github.com/ximeraProject/}}
 }
 
 \begin{document}
+\newgeometry{margin=1cm,headheight=3cm,includehead,includefoot}
 \pagestyle{main}
 \thispagestyle{title}
 \pagenumbering{gobble}
-%\begin{multicols}{2}
-    Ximera, pronounced ``chimera,'' is a free and
-    open-source platform offering tools for authoring and publishing
-    interactive educational content, including textbooks, assessments, and
-    online
-    courses. Currently, Ximera materials are utilized at approximately a dozen
-    institutions. Even with the most conservative estimates, Ximera saves
-    students
-    over one million dollars annually. The ultimate goal of this project is to
-    promote sustained student success and savings.
+Ximera, pronounced ``chimera,'' is a free and
+open-source platform offering tools for authoring and publishing
+interactive educational content, including textbooks, assessments, and
+online
+courses. Currently, Ximera materials are utilized at approximately a dozen
+institutions. Even with the most conservative estimates, Ximera saves
+students
+over one million dollars annually. The ultimate goal of this project is to
+promote sustained student success and savings.
 
-    The Ximera Project is funded 2024--2026 with (no other external funding) by
-    a U.S.\ Department of Education \$2,125,000
-    Open Textbooks Pilot Program grant. In the past, the Ximera Project has
-    also recieved support from NSF Grant
-    DUE-1245433, the Shuttleworth Foundation, the Ohio State University
-    Department of Mathematics, and the Affordable Learning Exchange at OSU.
-
-    \begin{xframe}
-        {\sffamily\bfseries Students}\\
-        Students primarly interact with \textit{content} produced within
-        Ximera. Hence their experience is highly dependent on the
-        \textit{quality} of
-        the content itself. With that said,
-        While students typically learn about Ximera through their courses, many
-        also use Ximera as independent learners. In 2023, we had over one
-        million unique visitors to Ximera content. Since Ximera materials are
-        free,
-        anyone can access and use them, regardless of enrollment in official
-        courses.
-    \end{xframe}
-
-    \begin{xframe}
-        {\sffamily\bfseries Instructors}\\
-        Instructors (who are not authors) can freely use any Ximera materials,
-        \textbf{without permission}, by simply sharing the URLs of activites
-        with their students. Many first time Ximera instructors start off by
-        using Ximera content as
-        ungraded assignemnts. Visit our website for an incomplete list of
-        Ximera courses that have been deployed online.
-    \end{xframe}
-
-    \begin{xframe}
-        {\sffamily\bfseries Authors}\\
-        With Ximera, authors use \LaTeX\ to create their content. From this
-        single
-        source code, we generate various output, for example: PDF worksheets,
-        PDF
-        textbooks, and	PDF solution manuals, and so on. However, Ximera can
-        also create
-        online interactive activities:
-        \begin{center}
-            \begin{tikzpicture}
-                \node at (-1.8,.2)
-                {\resizebox{.65cm}{!}{\input{document.tex}}};
-                \node at (-1.8,.2) {\small PDF};
-                \node at (-2,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
-                \node at (-2,0) {\small PDF};
-                \node at (-2.2,-.2)
-                {\resizebox{.65cm}{!}{\input{document.tex}}};
-                \node at (-2.2,-.2) {\small PDF};
-                \draw[->] (-.6,0) -- (-1.4,0);
-                \draw[->] (-.6,.2) -- (-1.4,.2);
-                \draw[->] (-.6,-.2) -- (-1.4,-.2);
-                \node at (0,0) {\resizebox{1cm}{!}{\input{document.tex}}};
-                \node at (0,0) {\LaTeX};
-                \draw[->] (.6,0) -- (1.4,0);
-
-                \node at (2,0) {\resizebox{1cm}{!}{\input{server.tex}}};
-                \draw[->] (2.6,0) -- (3.4,0);
-                \node at (4,0) {\resizebox{1cm}{!}{\input{computer.tex}}};
-                \node at (-2,-1) {Various};
-                \node at (-2,-1.4) {PDFs};
-                \node at (0,-1) {Single};
-                \node at (0,-1.4) {Source};
-                \node at (2,-1) {Deploy};
-                \node at (2,-1.4) {Server};
-                \node at (4,-1) {Students};
-                \node at (4,-1.4) {Engage};
-
-            \end{tikzpicture}
-        \end{center}
-        The same source code used to produce a PDF can be deployed to a Ximera
-        server, where it can be accessed by students. Getting started with
-        Ximera
-        is
-        easy---all you need is the XimeraLaTeX Package, available on CTAN.
-    \end{xframe}
-
-    \begin{xframe}
-        {\sffamily\bfseries Current Development}\\
-        Ximera is maintained by a dedicated community, continuously striving
-        for
-        improvement. Our current efforts focus on: Streamlining the deployment
-        process; Making LTI 1.3 support widely available. To this end, we are
-        developing our
-        deploy process using Docker and we are designing an assignment-grade
-        database
-        to
-        seamlessly serve  learners at institutions supporting LTI 1.3,
-        \begin{center}
-            \begin{tikzpicture}
-                \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120,
-                    aspect=2, inner ysep=1em,scale=.8] {};
-                \node at (-3,1) {LMS};
-                \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
-                \node at (-3,-2) {Students with LTI};
-                \draw[->] (-3.1,-.4) -- (-3.1,.4);
-                \draw[<-] (-2.9,-.4) -- (-2.9,.4);
-                \node at (0,0) {\resizebox{1cm}{!}{\input{modulus.tex}}};
-                \node at (0,-1) {Assignment};
-                \node at (0,-1.4) {Database};
-                \draw[->] (-2,.8) -- (-.6,.2);
-                \draw[<-] (-2.1,.6) -- (-.7,0);
-                \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
-                \node at (3,-2) {Deploy};
-                \node at (3,-2.4) {Server};
-                \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
-                \node at (3,2) {Self-learner};
-                \draw[->] (3.1,-.4) -- (3.1,.4);
-                \draw[<-] (2.9,-.4) -- (2.9,.4);
-                \draw[->] (2,.8) -- (.6,.2);
-                \draw[<-] (2.1,.6) -- (.7,0);
-                \draw[->] (2.3,-1) -- (.6,-.4);
-                \draw[<-] (2.4,-.8) -- (.7,-.2);
-            \end{tikzpicture}
-        \end{center}
-        while also offering alternatives for self-learners and scenarios where
-        LTI
-        1.3 is not
-        available.
-    \end{xframe}
-    \begin{xframe}
-        {\sffamily\bfseries Get Involved}\\
-        If you are interested in using Ximera or contributing to the effort,
-        either
-        as an instrutor, an author, or a developer, consider
-        applying for a \textbf{Ximera Flash-Grant Stipend} here:
-        \begin{center}
-            \tt  https://go.osu.edu/ximera-flash-grant/
-        \end{center}
-        Thank you for your interest in Ximera. We encourage you
-        to contact the team with  any questions you may have.
-    \end{xframe}
-    \begin{xframe}
-        {\sffamily\bfseries Talks at \textsl{MathFest} featuring Ximera}
-        \begin{itemize}
-            \item[{[1]}] \textbf{Lines of Sight: Activities Related to Visual
-                Perspective}. A.\ Davis; Thursday, August 8th,
-            10:20am--10:35am,
-            Room 309/310,
-            \textit{New Twists on Your Favorite Math Circle Activity Part A}.
-            \item[{[2]}] \textbf{Ximera in the Classroom}. B.\ Snapp and J.\
-            Fowler;
-            Friday, August 9th, 3:40pm--3:55pm, Room 313, \textit{Open-Source
-                Products for
-                the Advancement of Math Education Research and Practice}.
-        \end{itemize}
-    \end{xframe}
-    %\break\newgeometry{margin=1cm,headheight=1.5cm,includehead,includefoot}\pagestyle{main}
-
-    \begin{xframe}
-        {\sffamily\bfseries Reseach featuring Ximera}
-        \begin{itemize}
-            \item[{[3]}] J.\ Fowler et al.\ \textit{An Open-Source Calculus
-                Textbook on the Ximera Platform}. In:
-            PRIMUS 31.9 (2021), pp.\ 925--939. %url: \texttt{https://doi.org/10.1080/10511970.2020.1781720}
-            \item[{[4]}] E.\ Miller et al.\ \textit{Increasing active learning
-                in large, tightly coordinated
-                calculus courses}.
-            In: Primus 31.3--5 (2021), pp.\ 371--392.
-            \item[{[5]}] P.\ Zachlin and A.\ Davis. \textit{A New Online
-                Educational Resource (OER)
-                for Linear Algebra}. In: MAA Focus 43.3 (2023), pp.\ 36--38.
-        \end{itemize}
-    \end{xframe}
-
-    \begin{xframe}
-        {\sffamily\bfseries Software for Ximera development}
-        \begin{itemize}
-            \item \LaTeX\
-            \item Git
-            \item VS code
-            \item Docker Desktop
-        \end{itemize}
-    \end{xframe}
-
+The Ximera Project is funded 2024--2026 with (no other external funding) by
+a U.S.\ Department of Education \$2,125,000
+Open Textbooks Pilot Program grant. In the past, the Ximera Project has
+also recieved support from NSF Grant
+DUE-1245433, the Shuttleworth Foundation, the Ohio State University
+Department of Mathematics, and the Affordable Learning Exchange at OSU.
 
 \begin{xframe}
-        {\sffamily\bfseries Featured Ximera Activites}
-        \begin{itemize}
-            \item \textit{Lines and curves in space}: \qrcode{https://ximera.osu.edu/mooculus/calculus3/linesAndCurvesInSpace/digInLinesAndCurvesInSpace}
-            \qrcode{https://go.osu.edu/lcs}
-        \end{itemize}
-    \end{xframe}
+    {\sffamily\bfseries Students} interact with \textit{content} produced
+    within
+    Ximera. Hence their experience is highly dependent on the
+    \textit{quality} of
+    the content itself. With that said,
+    While students typically learn about Ximera through their courses, many
+    also use Ximera as independent learners. In 2023, we had over one
+    million unique visitors to Ximera content. Since Ximera materials are
+    free,
+    anyone can access and use them, regardless of enrollment in official
+    courses.
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Instructors} (who are not authors) can freely use
+    any Ximera materials,
+    \textbf{without permission}, by simply sharing the URLs of activites
+    with their students. Many first time Ximera instructors start off by
+    using Ximera content as
+    ungraded assignemnts. Visit our website for an incomplete list of
+    Ximera courses that have been deployed online.
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Authors} use \LaTeX\ to create their content. From
+    this
+    single
+    source code, we generate various output, for example: PDF worksheets,
+    PDF
+    textbooks, and	PDF solution manuals, and so on. However, Ximera can
+    also create
+    online interactive activities:
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (-1.8,.2)
+            {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-1.8,.2) {\small PDF};
+            \node at (-2,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-2,0) {\small PDF};
+            \node at (-2.2,-.2)
+            {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-2.2,-.2) {\small PDF};
+            \draw[->] (-.6,0) -- (-1.4,0);
+            \draw[->] (-.6,.2) -- (-1.4,.2);
+            \draw[->] (-.6,-.2) -- (-1.4,-.2);
+            \node at (0,0) {\resizebox{1cm}{!}{\input{document.tex}}};
+            \node at (0,0) {\LaTeX};
+            \draw[->] (.6,0) -- (1.4,0);
+
+            \node at (2,0) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \draw[->] (2.6,0) -- (3.4,0);
+            \node at (4,0) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (-2,-1) {Various};
+            \node at (-2,-1.4) {PDFs};
+            \node at (0,-1) {Single};
+            \node at (0,-1.4) {Source};
+            \node at (2,-1) {Deploy};
+            \node at (2,-1.4) {Server};
+            \node at (4,-1) {Students};
+            \node at (4,-1.4) {Engage};
+
+        \end{tikzpicture}
+    \end{center}
+    The same source code used to produce a PDF can be deployed to a Ximera
+    server, where it can be accessed by students. Getting started with
+    Ximera
+    is
+    easy---all you need is the XimeraLaTeX Package, available on CTAN.
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Current development} is focused two critical
+    aspects of Ximera: Streamlining the deployment
+    process; Making LTI 1.3 support widely available.
+    To this end, we are
+    developing our
+    deploy process using Docker and we are designing an assignment-grade
+    database
+    to
+    seamlessly serve  learners at institutions supporting LTI 1.3,
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120,
+                aspect=2, inner ysep=1em,scale=.8] {};
+            \node at (-3,1) {LMS};
+            \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (-3,-2) {Students with LTI};
+            \draw[->] (-3.1,-.4) -- (-3.1,.4);
+            \draw[<-] (-2.9,-.4) -- (-2.9,.4);
+            \node at (0,0) {\resizebox{1cm}{!}{\input{modulus.tex}}};
+            \node at (0,-1) {Assignment};
+            \node at (0,-1.4) {Database};
+            \draw[->] (-2,.8) -- (-.6,.2);
+            \draw[<-] (-2.1,.6) -- (-.7,0);
+            \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \node at (3,-2) {Deploy};
+            \node at (3,-2.4) {Server};
+            \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (3,2) {Self-learner};
+            \draw[->] (3.1,-.4) -- (3.1,.4);
+            \draw[<-] (2.9,-.4) -- (2.9,.4);
+            \draw[->] (2,.8) -- (.6,.2);
+            \draw[<-] (2.1,.6) -- (.7,0);
+            \draw[->] (2.3,-1) -- (.6,-.4);
+            \draw[<-] (2.4,-.8) -- (.7,-.2);
+        \end{tikzpicture}
+    \end{center}
+    while also offering alternatives for self-learners and scenarios where
+    LTI
+    1.3 is not
+    available.
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Get involved} by contributing to the effort,
+    either
+    as an instrutor, an author, or a developer, consider
+    applying for a \textbf{Ximera Flash-Grant Stipend} here:
+    \begin{center}
+        \tt  https://go.osu.edu/ximera-flash-grant/
+    \end{center}
+    Thank you for your interest in Ximera. We encourage you
+    to contact the team with  any questions you may have.
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Talks at \textsl{MathFest} featuring Ximera}
+    \begin{itemize}
+        \item[{[1]}] \textbf{Lines of Sight: Activities Related to Visual
+            Perspective}. A.\ Davis; Thursday, August 8th,
+        10:20am--10:35am,
+        Room 309/310,
+        \textit{New Twists on Your Favorite Math Circle Activity Part A}.
+        \item[{[2]}] \textbf{Ximera in the Classroom}. B.\ Snapp and J.\
+        Fowler;
+        Friday, August 9th, 3:40pm--3:55pm, Room 313, \textit{Open-Source
+            Products for
+            the Advancement of Math Education Research and Practice}.
+    \end{itemize}
+\end{xframe}
+\restoregeometry
+
+\begin{xframe}
+    {\sffamily\bfseries Reseach featuring Ximera}
+    \begin{itemize}
+        \item[{[3]}] J.\ Fowler et al.\ \textit{An Open-Source Calculus
+            Textbook on the Ximera Platform}. In:
+        PRIMUS 31.9 (2021), pp.\ 925--939. %url: \texttt{https://doi.org/10.1080/10511970.2020.1781720}
+        \item[{[4]}] E.\ Miller et al.\ \textit{Increasing active learning
+            in large, tightly coordinated
+            calculus courses}.
+        In: Primus 31.3--5 (2021), pp.\ 371--392.
+        \item[{[5]}] P.\ Zachlin and A.\ Davis. \textit{A New Online
+            Educational Resource (OER)
+            for Linear Algebra}. In: MAA Focus 43.3 (2023), pp.\ 36--38.
+    \end{itemize}
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Software for Ximera development}
+    \begin{itemize}
+        \item \LaTeX\
+        \item Git
+        \item VS code
+        \item Docker Desktop
+    \end{itemize}
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Featured Ximera Activites}
+    \begin{itemize}
+        \item \textit{Lines and curves in space}:
+              \qrcode{https://ximera.osu.edu/mooculus/calculus3/linesAndCurvesInSpace/digInLinesAndCurvesInSpace}
+              \qrcode{https://go.osu.edu/lcs}
+    \end{itemize}
+\end{xframe}
 
 \end{document}
