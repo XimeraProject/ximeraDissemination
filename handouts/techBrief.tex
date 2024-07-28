@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[twocolumn]{article}
 \usepackage[letterspace=-80]{microtype}
 \usepackage{tikz}
 \usetikzlibrary{shapes}
@@ -10,6 +10,8 @@
 \usepackage{multicol}
 \usepackage{environ}
 
+\usepackage{qrcode}
+\qrset{height=1cm}
 \usepackage{fancyhdr}
 \renewcommand{\headrulewidth}{0pt}
 \fancypagestyle{title}{%
@@ -48,9 +50,10 @@ https://github.com/ximeraProject/}}
 }
 
 \begin{document}
-\pagestyle{title}
+\pagestyle{main}
+\thispagestyle{title}
 \pagenumbering{gobble}
-\begin{multicols}{2}
+%\begin{multicols}{2}
     Ximera, pronounced ``chimera,'' is a free and
     open-source platform offering tools for authoring and publishing
     interactive educational content, including textbooks, assessments, and
@@ -194,9 +197,6 @@ https://github.com/ximeraProject/}}
         Thank you for your interest in Ximera. We encourage you
         to contact the team with  any questions you may have.
     \end{xframe}
-\end{multicols}
-\break\newgeometry{margin=1cm,headheight=1.5cm,includehead,includefoot}\pagestyle{main}
-\begin{multicols}{2}
     \begin{xframe}
         {\sffamily\bfseries Talks at \textsl{MathFest} featuring Ximera}
         \begin{itemize}
@@ -212,6 +212,8 @@ https://github.com/ximeraProject/}}
                 the Advancement of Math Education Research and Practice}.
         \end{itemize}
     \end{xframe}
+    %\break\newgeometry{margin=1cm,headheight=1.5cm,includehead,includefoot}\pagestyle{main}
+
     \begin{xframe}
         {\sffamily\bfseries Reseach featuring Ximera}
         \begin{itemize}
@@ -242,11 +244,9 @@ https://github.com/ximeraProject/}}
 \begin{xframe}
         {\sffamily\bfseries Featured Ximera Activites}
         \begin{itemize}
-            \item 
+            \item \textit{Lines and curves in space}: \qrcode{https://ximera.osu.edu/mooculus/calculus3/linesAndCurvesInSpace/digInLinesAndCurvesInSpace}
+            \qrcode{https://go.osu.edu/lcs}
         \end{itemize}
     \end{xframe}
 
-
-
-\end{multicols}
 \end{document}
