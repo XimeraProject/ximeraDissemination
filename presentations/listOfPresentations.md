@@ -8,7 +8,7 @@ https://www.tug.org/tug2024/abstracts/obbels-ximera.txt
 https://www.tug.org/tug2024/slides/obbels-ximera.pdf
 
 ## MathFest 2024
-August 7th - 10th, 2024. Indianapolis, Indiana.
+August 7th - 9th, 2024. Indianapolis, Indiana.
 - Ximera Booth
   - Slideshow
   - TechBrief
