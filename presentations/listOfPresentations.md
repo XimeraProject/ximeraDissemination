@@ -2,7 +2,7 @@
 
 ## Tug 2024
 July 19-21, 2024. Prague, Czechia.
-- Wim Obbles LU Leuven "Ximera interactive math educational resources for all: From LaTeX source code to PDF, HTML and beyond"
+- Wim Obbels KU Leuven "Ximera interactive math educational resources for all: From LaTeX source code to PDF, HTML and beyond"
 - (~50 participants)
 https://www.tug.org/tug2024/abstracts/obbels-ximera.txt
 https://www.tug.org/tug2024/slides/obbels-ximera.pdf
