@@ -1,0 +1,895 @@
+\documentclass{beamer}
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\tikzset{>=stealth}
+
+%\geometry{paperheight=9cm,paperwidth=16cm,margin=0cm}
+\geometry{margin=0cm}
+\usepackage{standalone}
+
+\usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+
+
+% \DeclareFontFamily{T1}{lmttc}{\hyphenchar \font-1 }
+% \DeclareFontShape{T1}{lmttc}{m}{n}
+%      {<-> ec-lmtlc10}{}
+% \DeclareFontShape{T1}{lmttc}{m}{it}
+%      {<->sub*lmttc/m/sl}{}
+% \DeclareFontShape{T1}{lmttc}{m}{sl}
+%      {<-> ec-lmtlco10}{}
+% \renewcommand{\ttdefault}{lmttc}
+
+\usepackage[T1]{fontenc}
+
+
+\usepackage{ccicons}
+\usepackage{shadowtext}
+\shadowoffsetx{-1.5pt}
+\shadowoffsety{1.5pt}
+\colorlet{myshadow}{black}
+\colorlet{textcolor}{yellow}
+\shadowcolor{myshadow}
+
+\definecolor{secretcr}{RGB}{0,255, 255}
+
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}{}
+\mode<presentation>
+
+\NewEnviron{slidef}[1]{% duation,image,license
+
+  \usebackgroundtemplate{\scalebox{-1}[1]{\includegraphics[width=\paperwidth]{#1}}}
+  \begin{frame}
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\NewEnviron{slide}[1]{% duation,image,license
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{#1}}
+  \begin{frame}
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\NewEnviron{slide*}[1]{% duation,image,license
+  \usebackgroundtemplate{\includegraphics[height=\paperheight]{#1}}
+  \begin{frame}
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      %\node at (0,0) {\includegraphics[width=\textwidth]{#1}};
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\NewEnviron{slideb}{% duation
+  \begin{frame}
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      \draw[fill=black] (-20,-20) rectangle (20,20);
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+\NewEnviron{slidew}{% duation
+  \begin{frame}
+    \centering\begin{tikzpicture}[x=1cm,y=1cm,overlay]%
+      \draw[fill=white] (-20,-20) rectangle (20,20);
+      \BODY%
+    \end{tikzpicture}%
+  \end{frame}
+}
+
+
+\begin{document}
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{space.jpg}
+  \node[] at (-.2cm,-.2cm) {\tikzset{draw/.append style={myshadow}}
+  \resizebox{.8\textwidth}{!}{\input{../../wormLogo/tikzLogo.tex}}};
+  \node[] at (0,0) {\tikzset{draw/.append style={textcolor}}
+  \resizebox{.8\textwidth}{!}{\input{../../wormLogo/tikzLogo.tex}}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+
+\begin{slide}{knuth.png}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
+\end{slide}
+
+\begin{slide}{knuth.png}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
+  \node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf WRITE}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Donald_Knuth_1965.png
+\begin{slide}{knuth.png}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf AUTHORS}}};
+  \node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf WRITE}}};
+  \node[textcolor] at (2,-3) {\scalebox{2}{\huge \shadowtext{\bf \TeX!}}};
+\end{slide}
+
+\input{answerCodeBlock}
+
+
+
+
+
+%https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_Magic_Circle_%28cropped%29.JPG
+\begin{slide}{magic.jpg}
+  \node[textcolor] at (3,3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+\end{slide}
+
+\begin{slide}{magic.jpg}
+  \node[textcolor] at (3,3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+  \node[textcolor] at (3,0) {\scalebox{2}{\huge \shadowtext{\bf DEPLOYS}}};
+\end{slide}
+
+\begin{slide}{magic.jpg}
+  \node[textcolor] at (3,3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+  \node[textcolor] at (3,0) {\scalebox{2}{\huge \shadowtext{\bf DEPLOYS}}};
+  \node[textcolor] at (3,-3) {\scalebox{2}{\huge \shadowtext{\bf ONLINE!}}};
+\end{slide}
+
+
+
+
+\foreach \i in {1,.95,...,0} {
+\begin{slide}{answerDeploy.png}
+  \draw[fill=black,opacity=\i] (-20,-10) rectangle (20,10);
+  \node[textcolor,right,opacity=\i] at (-6,3) {\scalebox{1.2}{\tt \color{cyan}\textbackslash documentclass\color{green}\{\color{textcolor}ximera\color{green}\}}};%
+  \node[textcolor,right,opacity=\i] at (-6,2.5) {\scalebox{1.2}{\tt \color{cyan}\textbackslash begin\color{green}\{\color{white}document\color{green}\}}};%
+  \node[textcolor,right,opacity=\i] at (-6,2) {\scalebox{1.2}{\tt \color{cyan}\textbackslash begin\color{green}\{\color{white}exercise\color{green}\}}};%
+  \node[textcolor,right,opacity=\i] at (-5,1.5) {\scalebox{1.2}{\tt \color{white} Let \color{magenta}\$\color{textcolor}x\color{magenta}\$
+  \color{white}be the number of people out of \color{magenta}\$\color{textcolor}100\color{magenta}\$}};%
+  \node[textcolor,right,opacity=\i] at (-5,1) {\scalebox{1.2}{\tt \color{white} who LOVE Ximera.}};%
+  \node[textcolor,right,opacity=\i] at (-5,0) {\scalebox{1.2}{\tt \color{white} Find the value of \color{magenta}\$\color{textcolor}x\color{magenta}\$\color{white}.}};%
+  \node[textcolor,right,opacity=\i] at (-5,-.5) {\scalebox{1.2}{\tt \textbackslash$[$}};
+  \node[textcolor,right,opacity=\i] at (-4,-1) {\scalebox{1.2}{\tt x = \textbackslash answer\{100\}}};
+  \node[textcolor,right,opacity=\i] at (-5,-1.5) {\scalebox{1.2}{\tt \textbackslash$]$}};
+  \node[textcolor,right,opacity=\i] at (-6,-2) {\scalebox{1.2}{\tt \color{cyan}\textbackslash end\color{green}\{\color{white}exercise\color{green}\}}};%
+  \node[textcolor,right,opacity=\i] at (-6,-2.5) {\scalebox{1.2}{\tt \color{cyan}\textbackslash end\color{green}\{\color{white}document\color{green}\}}};%
+\end{slide}}
+
+
+\begin{slide}{answerDeploy.png}
+\end{slide}
+
+
+
+
+
+% %https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+% \begin{slide}{3}{open.jpg}
+%   \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+% \end{slide}
+
+%https://commons.wikimedia.org/wiki/File:Water_drops_on_spider_web.jpg#mw-jump-to-license
+\begin{slide*}{web.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+\pause  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+ \pause \node[textcolor] at (0,-3) {\scalebox{2}{\huge\shadowtext{ \bf THE WEB!}}};
+\end{slide*}
+
+\begin{slide}{answerDeploy.png}{}
+\end{slide}
+
+
+\begin{slide}{answerfill.png}{}
+\end{slide}
+
+\begin{slide}{answerCorrect.png}{}
+\end{slide}
+
+
+
+%https://en.wikipedia.org/wiki/File:J._M._Flagg,_I_Want_You_for_U.S._Army_poster_(1917).jpg
+\begin{slide}{you.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
+  \pause\node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+  \pause\node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
+\end{slide}
+
+\begin{slidew}
+  \input{schools.tex}
+\end{slidew}
+
+
+
+
+
+%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+\begin{slide*}{students.jpg}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+        INTERACTIVE!}}};
+\end{slide*}
+
+% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+\begin{slide}{LeslieLamport.jpg}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+\end{slide}
+
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{open.jpg}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+
+%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+\begin{slide}{computerAD.jpg}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+\end{slide}
+
+
+\begin{slide*}{cash.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+\pause  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf SAVE}}};
+\pause  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf MILLIONS!}}};
+\end{slide*}
+
+
+
+
+
+%https://boudewijnhuijgens.getarchive.net/media/gateway-arch-fdeffd
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,3) {\scalebox{3}{\huge \shadowtext{\bf GATEWAYS}}};
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf TO}}};
+  \node[textcolor] at (0,-3) {\scalebox{3}{\huge \shadowtext{\bf XIMERA}}};
+\end{slide}
+
+
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,-2) {\scalebox{3}{\huge \shadowtext{\bf PDFs}}};
+\end{slide}
+
+
+\begin{slide}{solution.pdf}
+  \node[textcolor] at (0,-2) {\scalebox{3}{\huge \shadowtext{\bf PDFs}}};
+\end{slide}
+
+
+\begin{slide}{showsoln.pdf}
+  \node[textcolor] at (0,-2) {\scalebox{3}{\huge \shadowtext{\bf PDFs}}};
+\end{slide}
+
+
+%% SOLUTION
+
+
+
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf URLs}}};
+\end{slide}
+
+
+
+% %https://commons.wikimedia.org/wiki/File:ENIAC-changing_a_tube.jpg
+\begin{slide}{login.jpg}{\ccpd}
+  \node[textcolor] at (2,3) {\scalebox{2}{\huge \shadowtext{\bf NO}}};
+  \pause\node[textcolor] at (2,0) {\scalebox{2}{\huge \shadowtext{\bf LOGGING}}};
+  \pause\node[textcolor] at (2,-3) {\scalebox{2}{\huge \shadowtext{\bf IN!}}};
+\end{slide}
+
+
+%% Give example
+
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf PRELECTURES}}};
+\end{slide}
+
+\begin{slide}{prelect.png}
+\end{slide}
+
+
+%% FIRST USES
+
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf POSTLECTURES}}};
+\end{slide}
+
+%%% Not as common
+
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,2) {\scalebox{3}{\huge \shadowtext{\bf EXERCISE}}};
+  \node[textcolor] at (0,-2) {\scalebox{3}{\huge \shadowtext{\bf BANKS}}};
+\end{slide}
+
+
+
+\begin{slide}{verticalBars.png}
+ % \node[textcolor] at (0,2) {\scalebox{3}{\huge \shadowtext{\bf EXERCISE}}};
+ % \node[textcolor] at (0,-2) {\scalebox{3}{\huge \shadowtext{\bf BANKS}}};
+\end{slide}
+
+
+
+\begin{slide}{gateway.jpg}
+  \node[textcolor] at (0,2) {\scalebox{2}{\huge \shadowtext{\bf INTERACTIVE}}};
+  \node[textcolor] at (0,-2) {\scalebox{2}{\huge \shadowtext{\bf TEXTBOOKS}}};
+\end{slide}
+
+
+
+\begin{slide*}{annaPaul.png}
+\end{slide*}
+
+
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{open.jpg}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf GitHub}}};
+\end{slide}
+
+
+
+
+\begin{slide*}{git.png}
+\end{slide*}
+
+
+%https://commons.wikimedia.org/wiki/File:50_USD_Series_2004_Note_Front.jpg
+\begin{slide*}{grant.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf APPLY}}};
+\pause  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf FOR}}};
+\pause  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf GRANTS!}}};
+\end{slide*}
+
+
+
+
+%https://en.wikipedia.org/wiki/File:J._M._Flagg,_I_Want_You_for_U.S._Army_poster_(1917).jpg
+\begin{slide}{you.jpg}
+  \input{fundingBlurb}
+\end{slide}
+
+
+
+
+
+
+
+%% Show stuff
+
+
+
+%% GRANTS
+
+%% WORKSHOPS
+
+%% MODULUS
+%- support EVERYTHING
+
+
+
+\begin{slide*}{involved.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf BUILD}}};
+  \pause\node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
+  \pause\node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf US!}}};
+\end{slide*}
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{space.jpg}
+  \node at (0,0) {\includegraphics[width=.4\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+\foreach \i in {0,.05,...,1} {
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{space.jpg}{\ccpd}
+  \node at (0,0) {\includegraphics[width=.4\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+  \draw[fill=black,opacity={\i}] (-10,-6) rectangle (10,6);
+\end{slidef}}
+
+
+\foreach \i in {1,.95,...,0} {
+\begin{slideb}
+\node[secretcr] at (0,0) {\scalebox{2}{\huge COMING SOON\dots}};
+\draw[fill=black,opacity={\i}] (-10,-6) rectangle (10,6);
+\end{slideb}
+}
+
+
+\begin{slideb}
+  \input{premod.tex}
+ \end{slideb}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{space.jpg}
+  \node[] at (-.2cm,2.3cm) {\tikzset{draw/.append style={myshadow}}
+  \resizebox{.5\textwidth}{!}{\input{../../wormLogo/tikzLogo.tex}}};
+  \node[] at (0,2.5) {\tikzset{draw/.append style={textcolor}}
+  \resizebox{.5\textwidth}{!}{\input{../../../wormLogo/tikzLogo.tex}}};
+  \node at (0,-1) {\includegraphics[width=.3\textwidth]{patch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+
+
+
+
+
+
+%%https://commons.wikimedia.org/wiki/File:Jimi_Hendrix_1967_uncropped.jpg
+\begin{slide}{feedback.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf FEEDBACK}}};
+\end{slide}
+
+\begin{slide}{feedback.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf FEEDBACK}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IS}}};
+\end{slide}
+
+\begin{slide}{3}{feedback.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf FEEDBACK}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IS}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf IMMEDIATE!}}};
+\end{slide}
+
+
+
+\begin{slide}{selectAllDeploy.png}{}
+\end{slide}
+
+\begin{slide}{selectAllFill.png}{}
+\end{slide}
+
+\begin{slide}{3}{selectAllCorrect.png}{}
+\end{slide}
+
+
+
+%https://commons.wikimedia.org/wiki/File:Gfp-several-small-ammonites-preserved-on-rock.jpg
+\begin{slide}{embed.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+YOUTUBE!}}};
+\end{slide}
+
+
+\begin{slide}{embed.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+YOUTUBE!}}};
+  \node[textcolor] at (0,1) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+GEOGEBRA!}}};
+\end{slide}
+
+\begin{slide}{embed.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+YOUTUBE!}}};
+  \node[textcolor] at (0,1) {\scalebox{2}{\huge \shadowtext{\bf EMBED GEOGEBRA!}}};
+
+  \node[textcolor] at (0,-1) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+DESMOS!}}};
+\end{slide}
+
+
+
+\begin{slide}{3}{embed.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+YOUTUBE!}}};
+  \node[textcolor] at (0,1) {\scalebox{2}{\huge \shadowtext{\bf EMBED GEOGEBRA!}}};
+
+  \node[textcolor] at (0,-1) {\scalebox{2}{\huge \shadowtext{\bf EMBED DESMOS!}}};
+
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf EMBED
+DESMOS 3D!}}};
+\end{slide}
+
+
+%https://commons.wikimedia.org/wiki/File:Heinrich_fueger_1817_prometheus_brings_fire_to_mankind.jpg
+\begin{slide}{prometheus.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf MAKE}}};
+\end{slide}
+
+\begin{slide}{prometheus.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf MAKE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf SOMETHING}}};
+\end{slide}
+
+\begin{slide}{3}{prometheus.jpg}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf MAKE}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf SOMETHING}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf COOL!}}};
+\end{slide}
+
+
+%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+\begin{slide}{3}{students.jpg}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+        INTERACTIVE!}}};
+\end{slide}
+
+% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+\begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+\end{slide}
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{3}{open.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+\begin{slide}{3}{computerAD.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+\end{slide}
+
+
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{4}{space.jpg}{\ccpd}
+  \node[] at (-.2cm,2.3cm) {\tikzset{draw/.append style={myshadow}}
+  \resizebox{.5\textwidth}{!}{\input{../../../wormLogo/tikzLogo.tex}}};
+  \node[] at (0,2.5) {\tikzset{draw/.append style={textcolor}}
+  \resizebox{.5\textwidth}{!}{\input{../../../wormLogo/tikzLogo.tex}}};
+  \node[anchor=west,textcolor] at (-4.25,1.2){\Huge\shadowtext{\bf Interactive}};
+  \node[anchor=west,textcolor] at (-4.25,.2){\Huge\shadowtext{\bf Mathematics}};
+  \node[anchor=west,textcolor] at (-4.25,-.8){\Huge\shadowtext{\bf Education}};
+  \node[anchor=west,textcolor] at (-4.25,-1.8){\Huge\shadowtext{\bf Resources for}};
+  \node[anchor=west,textcolor] at (-4.25,-2.8){\Huge\shadowtext{\bf All}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+
+
+% %https://commons.wikimedia.org/wiki/File:Heinrich_fueger_1817_prometheus_brings_fire_to_mankind.jpg
+% \begin{slide}{prometheus.jpg}{\ccpd}
+%   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STEAL}}};
+% \end{slide}
+
+% \begin{slide}{prometheus.jpg}{\ccpd}
+%   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STEAL}}};
+%   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf OUR}}};
+% \end{slide}
+
+% \begin{slide}{3}{prometheus.jpg}{\ccpd}
+%   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STEAL}}};
+%   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf OUR}}};
+%   \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf CODE!}}};
+% \end{slide}
+
+% \begin{slide*}{github.png}{\ccpd}
+% \end{slide*}
+
+% \begin{slide*}{.5}{githubHS.png}{\ccpd}
+% \end{slide*}
+
+% \begin{slide*}{.5}{githubS.png}{\ccpd}
+% \end{slide*}
+
+% %start 1
+% \begin{slideb}{.5}
+%   \node at(0,0){};
+%   \end{slideb}
+
+%   \begin{slide*}{.05}{githubS.png}{\ccpd}
+%   \end{slide*}
+
+% \begin{slideb}{.05}
+% \input{selectAllCodeBlock}
+% \end{slideb}
+
+
+% %2
+% \begin{slideb}{.05}
+%   \node at(0,0){};
+%   \end{slideb}
+
+%   \begin{slide*}{.05}{githubS.png}{\ccpd}
+%   \end{slide*}
+
+%   \begin{slideb}{.05}
+%     \input{selectAllCodeBlock}
+% \end{slideb}
+
+% %3
+% \begin{slideb}{.05}
+%   \node at(0,0){};
+%   \end{slideb}
+
+%   \begin{slide*}{.05}{githubS.png}{\ccpd}
+%   \end{slide*}
+
+%   \begin{slideb}{.05}
+%     \input{selectAllCodeBlock}
+% \end{slideb}
+
+% %4
+% \begin{slideb}{.05}
+%   \node at(0,0){};
+%   \end{slideb}
+
+%   \begin{slide*}{.05}{githubS.png}{\ccpd}
+%   \end{slide*}
+
+% \begin{slideb}{3}
+%     \input{selectAllCodeBlock}
+% \end{slideb}
+
+% %5
+% \begin{slideb}{.05}
+%   \node at(0,0){};
+%   \end{slideb}
+% \begin{slideb}{.05}
+%     \input{selectAllCodeBlock}
+% \end{slideb}
+
+% %6
+% \begin{slideb}{.05}
+%   \node at(0,0){};
+%   \end{slideb}
+% \begin{slideb}{3}
+%     \input{selectAllCodeBlock}
+% \end{slideb}
+
+
+
+
+
+
+%https://commons.wikimedia.org/wiki/File:Cash_money!_140606-A-CA521-021.jpg
+\begin{slide}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+\end{slide}
+
+\begin{slide}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf SAVE}}};
+\end{slide}
+
+
+\begin{slide}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf STUDENTS}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf SAVE}}};
+  \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf MILLIONS!}}};
+\end{slide}
+
+
+\begin{slidew}{3}
+  \input{schools.tex}
+\end{slidew}
+
+
+
+
+
+%https://commons.wikimedia.org/wiki/File:50_USD_Series_2004_Note_Front.jpg
+\begin{slide*}{grant.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf APPLY}}};
+\end{slide*}
+
+%https://commons.wikimedia.org/wiki/File:50_USD_Series_2004_Note_Front.jpg
+\begin{slide*}{grant.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf APPLY}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf FOR}}};
+\end{slide*}
+
+
+
+
+
+
+
+
+
+
+%https://commons.wikimedia.org/wiki/File:Defense.gov_photo_essay_100713-A-5170O-167.jpg
+\begin{slide}{involved.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf BUILD}}};
+\end{slide}
+
+\begin{slide}{involved.jpg}{\ccpd}
+  \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf BUILD}}};
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf WITH}}};
+\end{slide}
+
+
+
+
+
+
+
+
+%https://commons.wikimedia.org/wiki/File:Cpc464.computer.750pix.jpg
+\begin{slide}{3}{students.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf IT'S
+        INTERACTIVE!}}};
+\end{slide}
+
+% %https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg
+\begin{slide}{3}{LeslieLamport.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S EASY!}}};
+\end{slide}
+
+%https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NORADBlast-Doors.jpg/1014px-NORADBlast-Doors.jpg
+\begin{slide}{3}{open.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S OPEN!}}};
+\end{slide}
+
+%https://commons.wikimedia.org/wiki/File:%22The_Future%22_Computers_-_Epson_Equity_I_-_May_1987_Puget_Sound_ComputerUser_advert.jpg
+\begin{slide}{3}{computerAD.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf IT'S FREE!}}};
+\end{slide}
+
+
+
+%https://commons.wikimedia.org/wiki/File:Cash_money!_140606-A-CA521-021.jpg
+\begin{slide}{3}{cash.jpg}{\ccpd}
+  \node[textcolor] at (0,0) {\scalebox{3}{\huge \shadowtext{\bf CASH!}}};
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{slidew}
+% \input{schools.tex}
+
+%   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
+%   \end{slidew}
+
+%   \begin{slidew}
+% \input{schools.tex}
+
+%     \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
+%     \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+%     \end{slidew}
+
+%     \begin{slidew}{3}
+% \input{schools.tex}
+% \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SCHOOLS}}};
+% \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf USE}}};
+% \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf XIMERA!}}};
+%       \end{slidew}
+
+
+
+
+% \begin{slide}{3}{cash.jpg}{\ccpd}
+%   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf PRINT}}};
+%   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf COPIES}}};
+%   \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf TOO!}}};
+% \end{slide}
+
+% \begin{slide}{3}{cash.jpg}{\ccpd}
+%   \node[textcolor] at (0,3) {\scalebox{2}{\huge \shadowtext{\bf SEE}}};
+%   \node[textcolor] at (0,0) {\scalebox{2}{\huge \shadowtext{\bf XIMERA}}};
+%   \node[textcolor] at (0,-3) {\scalebox{2}{\huge \shadowtext{\bf CONTENT!}}};
+% \end{slide}
+
+
+
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{3}{space.jpg}{\ccpd}
+  \node at (0,0) {\includegraphics[width=.4\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+\end{slidef}
+
+\foreach \i in {0,.05,...,1} {
+%https://en.wikipedia.org/wiki/File:30_Doradus,_Tarantula_Nebula.jpg
+\begin{slidef}{.05}{space.jpg}{\ccpd}
+  \node at (0,0) {\includegraphics[width=.4\textwidth]{missionPatch.png}};
+  \node[textcolor] at (0,-4) {\shadowtext{\bf
+      https://github.com/ximeraProject}};
+  \node at (0,-4.5) {\shadowtext{\color{red} All photos used are in the Public
+      Domain: \ccpd}};
+  \draw[fill=black,opacity={\i}] (-10,-6) rectangle (10,6);
+\end{slidef}}
+
+
+
+\begin{slideb}{1}
+\end{slideb}
+
+\begin{slideb}{.05}
+  \input{premod.tex}
+ \end{slideb}
+
+ \begin{slideb}{.3}
+ \end{slideb}
+
+ \begin{slideb}{.1}
+  \input{premod.tex}
+ \end{slideb}
+
+ \begin{slideb}{.1}
+ \end{slideb}
+
+
+
+\foreach \i in {0,.05,...,1} {
+\begin{slideb}{.1}
+  \input{premod}
+  \draw[fill=black,opacity={\i}] (-10,-10) rectangle (10,10);
+  \node[opacity=\i] at (0,0) {
+    \includegraphics[width=.6\textwidth]{mx.jpg}};
+\end{slideb}
+}
+
+\begin{slideb}{1}
+  \node[opacity=1] at (0,0) {
+    \includegraphics[width=.6\textwidth]{mx.jpg}};
+\end{slideb}
+
+
+\foreach \i in {1,.95,...,0} {
+  \begin{slideb}{.1}
+    \node[opacity=1] at (0,0) {
+      \includegraphics[width=.6\textwidth]{mx.jpg}};
+    \node[secretcr] at (0,-4) {\Huge MODULUS IS COMING};
+    \draw[fill=black,opacity=\i] (-5,-5) rectangle (5,-3);
+  \end{slideb}
+  }
+
+
+  \begin{slideb}{3}
+    \node[opacity=1] at (0,0) {
+      \includegraphics[width=.6\textwidth]{mx.jpg}};
+    \node[secretcr] at (0,-4) {\Huge MODULUS IS COMING};
+  \end{slideb}
+
+
+
+\end{document}
