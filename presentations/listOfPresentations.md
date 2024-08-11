@@ -15,4 +15,5 @@ August 7th - 9th, 2024. Indianapolis, Indiana.
   - QR Codes with links to courses
   - TV: with youtube video https://www.youtube.com/watch?v=Ek2-eL7E4X0
 - Snapp and Fowler
-- Anna Davis
+- Anna Davis "Lines of Sight" 
+- (~50 participants)
