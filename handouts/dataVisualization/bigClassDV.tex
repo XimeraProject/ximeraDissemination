@@ -1,0 +1,140 @@
+\documentclass{techbrief}
+
+\title{Data}
+\date{\today}
+\event{Special Report}
+
+\newcommand{\modulus}{\textsf{Modulus}}
+
+\usepackage{lipsum}
+
+\begin{document}
+\newgeometry{margin=1cm,headheight=3cm,includehead,includefoot}
+\pagestyle{main}%\onecolumn
+\thispagestyle{title}
+\pagenumbering{gobble}
+\noindent
+\lettrine[lines=2]{A}{} promised feature of \modulus\ is rich data visualization---even when in
+aggregate.
+In this document we will describe issues and needs of instructors of `Big-Math
+5000,' a fictitious course of 5000 students.
+Issues that are relevant to \modulus\ include:
+\begin{enumerate}
+    \item There are many `roles' that instructors have: Course Coordinator,
+          Lecturer, Teaching Assistant. How do we push this work back to
+          Big-Math 5000?
+    \item What sort of meaningful aggregate data can we give?
+    \item How can we display this data in a meaningful way?
+\end{enumerate}
+We believe \modulus\ will be capable of dealing with issues like this
+
+\begin{xframe}
+    \textbf{The data} for a given assignment that we seek are 
+    \begin{description}
+        \item[Time to Completion] This is the time it takes to complete an
+            activity.
+        \item[Attempts to Completion] This would be the total number of answers
+            submitted necessary to complete the activity.
+        \item[First Attempt] Percent complete on first
+            attempt. All assignments are valued
+            0--1.So suppose an assignment has 4 questions. If a student gets
+            all 4 correct on the first attempt, then this would be 100\%. If
+            the
+            student gets
+            the first question correct on the first attempt, and every other
+            question takes
+            more attempts, then this is 25\%.
+    \end{description}
+    This data may be displayed as a heat-map, and will surely need to be
+    scaled/truncated.
+\end{xframe}
+
+\begin{xframe}
+    \textbf{Big-Math 5000} is a coordinated course. This means there are
+    `Course Coordinators' who oversee the entire course of 5000 students,
+    there are Lecturers who have classes of 200, and there are Teaching
+    Assistants who teach sections of 40. 
+
+    They need to be able to `Set-up' a course in \textsl{Canvas}, and then copy
+    this course for their 25 lecturers. There are 102 assignments in this
+    course, 100 assignments common to all students, 1 unique to each lecturer, and 1 unique to each recitation
+    instructor. No mass-editing can be done. Hence they want a single identifier for
+    Big-Math 5000,
+    \begin{center}\scriptsize
+        \texttt{https://modulus.org/12345/https://assignment001}\\
+        \texttt{https://modulus.org/12345/https://assignment002}\\
+        \texttt{https://modulus.org/12345/https://assignment003}\\
+        \dots
+        \texttt{https://modulus.org/12345/https://assignment100}\\
+    \end{center}
+    This identifier will \textbf{not change} between sections of Big-Math 5000,
+    nor will it change between semesters or years. If someone has rights to see
+    data in \modulus\ for Big-Math 5000, they will be able to see the data for
+    the history of the course.
+
+    Moreover, Course Coordinators need to be able to see data for all students
+    grouped by lecture and recitation.
+
+    As a \textbf{solution} to these issues, instructors will have a
+    personalized
+    \modulus\ assignment that they give all of their courses. If Jim Fowler and
+    Bart Snapp are Teaching Assistants in Big-Math 5000, then they each give
+    their
+    students the respective assignments:
+    \begin{center}\scriptsize
+
+        \texttt{https://modulus.org/12345/https://ximera.osu.edu/meetJimFowler}\\
+
+        \texttt{https://modulus.org/12345/https://ximera.osu.edu/meetBartSnapp}\\
+        \dots
+    \end{center}
+    And now the course coordinator knows which student is in which section
+    simply by the assignments the student submitted.
+\end{xframe}
+
+\begin{xframe}
+    \textbf{Visualizing} this data will be achieved via a heat map in an student-assignment matrix:
+    \begin{center}
+        \begin{tikzpicture}
+        \node[anchor=north west] at (-.2,.5) {\scriptsize 100 common assignments};
+        \node[anchor=north west] at (-.5,-.4) {\rotatebox{90}{\scriptsize 200 anonomous students along the side}};
+        \node[anchor=north west] at (0,0) {\includegraphics[width=3cm]{lecture.png}};
+        \node[] at (5,-2) {\scriptsize Unique};
+        \node[] at (5,-2.3) {\scriptsize recitation assignments};
+
+
+
+        \draw[->] (3.8,-2.3) -- (3.2,-.5);
+        \draw[->] (3.8,-2.3) -- (3.2,-1.5);
+        \draw[->] (3.8,-2.3) -- (3.2,-2.3);
+        \draw[->] (3.8,-2.3) -- (3.2,-3.3);
+        \draw[->] (3.8,-2.3) -- (3.2,-4.3);
+        
+
+        \draw[->] (4,-5.2) -- (2.5,-4.7);
+        \node[] at (4,-5.5) {\scriptsize Unique lecture  assignment};
+
+        \end{tikzpicture}
+    \end{center}   
+    With such a visualization, we would be able to better understand the difficulty of our assignments, and see if differences in performance occur between recitations/lectures.
+
+    Combined with \textbf{flexible sorting} options, visualziations 
+\end{xframe}
+
+\restoregeometry
+\onecolumn\noindent
+With this model of visualization, flexible \textbf{sorting options}, ways to \textbf{discard erroneous assignments}, and \textbf{options for the range of the heat map}, we should be able to effectively visualize the entire course, with a mock-up given below:
+\begin{center}
+\includegraphics[width=3cm]{course1-5.png}\includegraphics[width=3cm]{course6-10.png}\includegraphics[width=3cm]{course11-15.png}\includegraphics[width=3cm]{course16-20.png}\includegraphics[width=3cm]{course21-25.png}
+\end{center}
+% \begin{xframe}
+%     \textbf{Funding for the Ximera Project} is provided by
+%     a U.S.\ Department of Education Open Textbooks Pilot Program grant in the
+%     amount of \$2,125,000, from 2024--2026, with no external funding. In the
+%     past, the Ximera Project has
+%     also received support from NSF Grant DUE-1245433, the Shuttleworth
+%     Foundation, the Ohio State University
+%     Department of Mathematics, and the Affordable Learning Exchange at OSU.
+% \end{xframe}
+
+\end{document}
