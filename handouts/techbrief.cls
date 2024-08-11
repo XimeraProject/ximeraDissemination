@@ -25,6 +25,8 @@
 \tikzset{>=stealth}
 \qrset{height=1cm}
 
+\setlength\parindent{0pt}
+
 % Custom Commands
 \newcommand{\event}[1]{\def\theevent{#1}}
 \newcommand{\theevent}{}
