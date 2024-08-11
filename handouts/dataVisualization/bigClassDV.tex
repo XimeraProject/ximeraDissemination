@@ -31,7 +31,7 @@ We believe \modulus, despite its minimal interface, will be capable of dealing w
 \begin{xframe}
     \textbf{The data} for a given assignment that we seek are 
     \begin{description}
-        \item[Time to Completion] This is the time it takes to complete an
+        \item[\textit{Time to Completion}] This is the time it takes to complete an
             activity.
         \item[Attempts to Completion] This would be the total number of answers
             submitted necessary to complete the activity.
@@ -45,8 +45,34 @@ We believe \modulus, despite its minimal interface, will be capable of dealing w
             question takes
             more attempts, then this is 25\%.
     \end{description}
-    This data may be displayed as a heat-map, and will surely need to be
-    scaled/truncated.
+\end{xframe}
+
+
+\begin{xframe}
+    \textbf{Visualizing} this data will be achieved via a heat map in an student-assignment matrix:
+    \begin{center}
+        \begin{tikzpicture}
+        \node[anchor=north west] at (-.2,.5) {\scriptsize 100 common assignments};
+        \node[anchor=north west] at (-.5,-.4) {\rotatebox{90}{\scriptsize 200 anonomous students along the side}};
+        \node[anchor=north west] at (0,0) {\includegraphics[width=3cm]{lecture.png}};
+        \node[] at (5,-2) {\scriptsize Unique};
+        \node[] at (5,-2.3) {\scriptsize recitation assignments};
+
+
+
+        \draw[->] (3.8,-2.3) -- (3.2,-.5);
+        \draw[->] (3.8,-2.3) -- (3.2,-1.5);
+        \draw[->] (3.8,-2.3) -- (3.2,-2.3);
+        \draw[->] (3.8,-2.3) -- (3.2,-3.3);
+        \draw[->] (3.8,-2.3) -- (3.2,-4.3);
+        
+
+        \draw[->] (4,-5.2) -- (2.5,-4.7);
+        \node[] at (4,-5.5) {\scriptsize Unique lecture  assignment};
+
+        \end{tikzpicture}
+    \end{center}   
+    With such a visualization, we would be able to better understand the difficulty of our assignments, and see if differences in performance occur between recitations/lectures.
 \end{xframe}
 
 \begin{xframe}
@@ -92,32 +118,7 @@ We believe \modulus, despite its minimal interface, will be capable of dealing w
     simply by the assignments the student submitted.
 \end{xframe}
 
-\begin{xframe}
-    \textbf{Visualizing} this data will be achieved via a heat map in an student-assignment matrix:
-    \begin{center}
-        \begin{tikzpicture}
-        \node[anchor=north west] at (-.2,.5) {\scriptsize 100 common assignments};
-        \node[anchor=north west] at (-.5,-.4) {\rotatebox{90}{\scriptsize 200 anonomous students along the side}};
-        \node[anchor=north west] at (0,0) {\includegraphics[width=3cm]{lecture.png}};
-        \node[] at (5,-2) {\scriptsize Unique};
-        \node[] at (5,-2.3) {\scriptsize recitation assignments};
 
-
-
-        \draw[->] (3.8,-2.3) -- (3.2,-.5);
-        \draw[->] (3.8,-2.3) -- (3.2,-1.5);
-        \draw[->] (3.8,-2.3) -- (3.2,-2.3);
-        \draw[->] (3.8,-2.3) -- (3.2,-3.3);
-        \draw[->] (3.8,-2.3) -- (3.2,-4.3);
-        
-
-        \draw[->] (4,-5.2) -- (2.5,-4.7);
-        \node[] at (4,-5.5) {\scriptsize Unique lecture  assignment};
-
-        \end{tikzpicture}
-    \end{center}   
-    With such a visualization, we would be able to better understand the difficulty of our assignments, and see if differences in performance occur between recitations/lectures.
-\end{xframe}
 
 \restoregeometry
 \onecolumn\noindent

@@ -17,6 +17,12 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[framemethod=TikZ]{mdframed}
 \RequirePackage{pgf}
+\RequirePackage[skip=5pt plus1pt, indent=0pt]{parskip}
+%\setlength\parindent{0pt}
+\RequirePackage{enumitem}
+
+\setlist[description]{font=\normalfont\itshape}
+
 
 % Generate a random 4-digit number
 \pgfmathsetseed{\number\pdfuniformdeviate10000} % Initialize the random number generator with a seed
@@ -25,7 +31,6 @@
 \tikzset{>=stealth}
 \qrset{height=1cm}
 
-\setlength\parindent{0pt}
 
 % Custom Commands
 \newcommand{\event}[1]{\def\theevent{#1}}
