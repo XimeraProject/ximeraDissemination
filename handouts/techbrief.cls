@@ -18,12 +18,14 @@
 \RequirePackage[framemethod=TikZ]{mdframed}
 \RequirePackage{pgf}
 \RequirePackage[skip=5pt plus1pt, indent=0pt]{parskip}
-%\setlength\parindent{0pt}
 \RequirePackage{enumitem}
 
 \setlist[description]{font=\normalfont\itshape}
 
-
+\usetikzlibrary{shapes.callouts}
+\tikzset{
+  notice/.style  = { draw, rectangle callout, callout relative pointer={#1} },
+}
 % Generate a random 4-digit number
 \pgfmathsetseed{\number\pdfuniformdeviate10000} % Initialize the random number generator with a seed
 \pgfmathtruncatemacro{\myrandom}{1000 + \pdfuniformdeviate 9000} % Random number between 1000 and 9999
