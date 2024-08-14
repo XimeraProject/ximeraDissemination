@@ -30,7 +30,8 @@ Issues that are relevant to \modulus\ include:
 We believe \modulus, despite its minimal interface, will be capable of dealing
 with issues.
 
-\begin{xframe}{\bfseries \modulus} is our assignment database. It will provide (among other things) LTI connection to Canvas.
+\begin{xframe}{\bfseries \modulus} is our assignment database. It will provide
+    (among other things) LTI connection to Canvas.
 
     \begin{center}
         \begin{tikzpicture}
@@ -59,30 +60,37 @@ with issues.
         \end{tikzpicture}
     \end{center}
     For students using a supported LMS, modulus
-    
-    Its basic functionality is that it will provide a course ID. In this case the course ID for Big-Math 5000 is \texttt{12345}.
+
+    Its basic functionality is that it will provide a course ID. In this case
+    the course ID for Big-Math 5000 is \texttt{12345}. This should probably be
+    a
+    random hash.
     Any URL appended to
     \begin{center}
         \texttt{https://modulus.org/12345/}
     \end{center}
-    will \textit{automatically} become part of the Big-Math 5000 data set. However, these assignments can be purged/filtered based on date and number of submissions. 
+    number of submissions.
+    will \textit{automatically} become part of the Big-Math 5000 data set.
 \end{xframe}
 
 \break
 
 \begin{xframe}
     \textbf{Big-Math 5000} is a coordinated course. This means there are
-    `Course Coordinators' who oversee the entire course of 5000 students,
-    there are Lecturers who have classes of 200, and there are Teaching
-    Assistants who teach sections of 40.
+    \textit{Course Coordinators} who oversee the entire course of 5000
+    students,
+    there are \textit{Lecturers} who have classes of 200, and there are
+    \textit{Teaching
+        Assistants} who teach sections of 40.
 
-    They need to be able to `Set-up' a course in \textsl{Canvas}, and then copy
-    this course for their 25 lecturers. There are 102 assignments in this
-    course, 100 assignments common to all students, 1 unique to each lecturer,
-    and 1 unique to each recitation
+    Course Coordinators need to be able to `Set-up' a course in
+    \textsl{Canvas}, and then copy
+    this course for their 25 lecturers. They use the same 100 assignments each
+    semester. Identical copies of the course (from the view of the LMS) must
+    function.  There are 2 additional assignments in this
+    course, 1 unique to each lecturer, and 1 unique to each recitation
     instructor. No mass-editing can be done. Hence they want a single
-    identifier for
-    Big-Math 5000,
+    identifier for Big-Math 5000,
     \begin{center}\scriptsize
         \texttt{https://modulus.org/12345/https://assignment001}\\
         \texttt{https://modulus.org/12345/https://assignment002}\\
@@ -96,7 +104,8 @@ with issues.
     the history of the course.
 
     Moreover, Course Coordinators need to be able to see data for all students
-    grouped by lecture and recitation.
+    \textbf{scaled} and \textbf{grouped} by \textbf{lecture} and
+    \textbf{recitation}.
 
     As a \textbf{solution} to these issues, instructors will have a
     personalized
@@ -111,27 +120,44 @@ with issues.
         \texttt{https://modulus.org/12345/https://ximera.osu.edu/meetBartSnapp}\\
         \dots
     \end{center}
-    And now the course coordinator knows which student is in which section
+    And now the Course Coordinator knows which student is in which section
     simply by the assignments the student submitted.
 \end{xframe}
-
 
 \begin{xframe}
     \textbf{The data} for a given assignment that we seek are
     \begin{description}
+        \item[Percent complete] This is essentially the grade on the assignment
         \item[\textit{Time to Completion}] This is the time it takes to
             complete an
             activity.
         \item[Attempts to Completion] This would be the total number of answers
-            submitted necessary to complete the activity.
+            submitted necessary to complete the activity; perhaps divided by
+            the (total!) number of answerables.
         \item[First Attempt] Percent complete on first
             attempt. All assignments are valued
             0--1. If an assignment has 4 questions and a student gets
             all 4 correct on the first attempt, then this would be 100\%. If
             the student gets the first question correct on the first attempt,
-            and every other
-            question takes more attempts, then this is 25\%.
+            and every other question takes more attempts, then this is 25\%.
     \end{description}
+\end{xframe}
+
+\begin{xframe}
+\textbf{\modulus} should provide something equivalent or better than the
+what follows. The(/an?) owner of 12345 should be able:
+\begin{description}
+\item[List] all 12345 assignments filtered by a \textbf{minimum number
+    of unique student attempts/completions} (which could be 0) in a
+given \textbf{date-range}.
+\item[Select] data from a \textbf{assignment-list} that is pasted into
+\modulus\ along with a \textbf{date-range}. This list of assignments could be
+generated in the step above.
+\item[View] the \textbf{data} for the \textbf{assignments selected above}, 
+for \textbf{students} who \textbf{attempted/completed any/all} assignments in a \textbf{list}, usually part of the list in the first step.
+filtered by a \textbf{minimum number
+of unique student attempts/completions} (which could be 0) and a \textbf{date-range}.
+\end{description}
 \end{xframe}
 
 \begin{xframe}
@@ -141,7 +167,8 @@ with issues.
         \begin{tikzpicture}
             \node[anchor=north west] at (-.2,.5) {\scriptsize 100 common
                 assignments};
-            \node[anchor=north west] at (-.5,-.4) {\rotatebox{90}{\scriptsize 200
+            \node[anchor=north west] at (-.5,-.4) {\rotatebox{90}{\scriptsize
+                    200
                     anonomous students along the side}};
             \node[anchor=north west] at (0,0)
             {\includegraphics[width=3cm]{lecture.png}};
@@ -159,60 +186,63 @@ with issues.
 
         \end{tikzpicture}
     \end{center}
-    Here, darker colors might corresponds to ``fewer attempts to completion,'' ``less time to completion,'' or ``fewer correct on first attempt.'' However, the ideal coloring can be left for another time.
+    Here, darker colors might corresponds to ``fewer attempts to completion,''
+    ``less time to completion,'' or ``fewer correct on first attempt.''
+    However,
+    the ideal coloring can be left for another time.
 
     With such a visualization, we would be able to better understand the
     difficulty of our assignments, and see if differences in performance occur
     between recitations/lectures.
 \end{xframe}
 
-
 \begin{xframe}
-    \textbf{Further analysis} of the data should be available via 
-    collapsing and zooming. 
-    
-    \textit{Collapsing} the data means taking some average of student work, to simply
-    analyze the assignments and taking averages of assignments to analyze student
-    performance. Once data is collapsed, there are other, more common (bar chart,
+    \textbf{Further analysis} of the data should be available via
+    collapsing and zooming.
+
+    \textit{Collapsing} the data means taking some average of student work, to
+    simply
+    analyze the assignments and taking averages of assignments to analyze
+    student
+    performance. Once data is collapsed, there are other, more common (bar
+    chart,
     scatter plot, line graph etc) that can be used.
-    
 
-
-    \textit{Zooming} the data means making the heat map larger. 
+    \textit{Zooming} the data means making the heat map larger.
     As an example, perhaps if we zoom-in and hover, we find:
     \begin{center}
         \begin{tikzpicture}
             \node at (0,0) {\includegraphics[width=7cm]{zoom.png}};
             \node[fill=white,notice={(-1,-.8)}, text width=3.5cm] at (-.7,.5)
-            {\begin{minipage}{3.5cm}\scriptsize\ttfamily https://assignment054\\ 34
+            {\begin{minipage}{3.5cm}\scriptsize\ttfamily
+                    https://assignment054\\ 34
                     attempts to completion
                 \end{minipage}};
         \end{tikzpicture}
     \end{center}
-    Clicking on the individual assignments could show a heat map of student activity.
+    Clicking on the individual assignments could show a heat map of student
+    activity.
 \end{xframe}
 
 \begin{xframe}
-\textbf{Accessibility} is difficult with this setting; however, we could provide export to a basic 3D printing of this diagram. 
+    \textbf{Accessibility} is difficult with this setting; however, we could
+    provide export to a basic 3D printing of this diagram.
 \end{xframe}
-
-
 
 \restoregeometry
 \onecolumn\noindent
 With this model of visualization, flexible \textbf{sorting options}, ways to
 \textbf{discard erroneous assignments}, and \textbf{options for the range of
-    the heat map}, we should be able to effectively visualize the entire course,
+    the heat map}, we should be able to effectively visualize the entire
+course,
 with a mock-up given below:
 \begin{center}
+
     \includegraphics[width=3cm]{course1-5.png}\includegraphics[width=3cm]{course6-10.png}\includegraphics[width=3cm]{course11-15.png}\includegraphics[width=3cm]{course16-20.png}\includegraphics[width=3cm]{course21-25.png}
 \end{center}
 Here we see the data for all assignments for the entire 5000 student course.
 With this set-up, we would be able to identify problematic assignments and
 issues in the course.
-
-
-
 
 % \begin{xframe}
 %     \textbf{Funding for the Ximera Project} is provided by
