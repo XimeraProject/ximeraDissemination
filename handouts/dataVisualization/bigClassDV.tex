@@ -128,36 +128,41 @@ with issues.
     \textbf{The data} for a given assignment that we seek are
     \begin{description}
         \item[Percent complete] This is essentially the grade on the assignment
-        \item[\textit{Time to Completion}] This is the time it takes to
-            complete an
-            activity.
-        \item[Attempts to Completion] This would be the total number of answers
-            submitted necessary to complete the activity; perhaps divided by
-            the (total!) number of answerables.
-        \item[First Attempt] Percent complete on first
-            attempt. All assignments are valued
-            0--1. If an assignment has 4 questions and a student gets
-            all 4 correct on the first attempt, then this would be 100\%. If
-            the student gets the first question correct on the first attempt,
-            and every other question takes more attempts, then this is 25\%.
+        \item[Completion over time] This is how the completion of the activity
+            it takes to complete an activity. Fit sigmoids to the student time series data.
+            % \item[Attempts to Completion] This would be the total number of answers
+            %     submitted necessary to complete the activity; perhaps divided by
+            %     the (total!) number of answerables.
+            % \item[First Attempt] Percent complete on first
+            %     attempt. All assignments are valued
+            %     0--1. If an assignment has 4 questions and a student gets
+            %     all 4 correct on the first attempt, then this would be 100\%. If
+            %     the student gets the first question correct on the first attempt,
+            %     and every other question takes more attempts, then this is 25\%.
     \end{description}
 \end{xframe}
 
 \begin{xframe}
-\textbf{\modulus} should provide something equivalent or better than the
-what follows. The(/an?) owner of 12345 should be able:
-\begin{description}
-\item[List] all 12345 assignments filtered by a \textbf{minimum number
-    of unique student attempts/completions} (which could be 0) in a
-given \textbf{date-range}.
-\item[Select] data from a \textbf{assignment-list} that is pasted into
-\modulus\ along with a \textbf{date-range}. This list of assignments could be
-generated in the step above.
-\item[View] the \textbf{data} for the \textbf{assignments selected above}, 
-for \textbf{students} who \textbf{attempted/completed any/all} assignments in a \textbf{list}, usually part of the list in the first step.
-filtered by a \textbf{minimum number
-of unique student attempts/completions} (which could be 0) and a \textbf{date-range}.
-\end{description}
+    \textbf{\modulus} should provide something equivalent or better than the
+    what follows. The(/an?) owner of 12345 should be able:
+    \begin{description}
+        \item[List] all 12345 assignments filtered by a \textbf{minimum number
+                of unique student attempts/completions} (which could be 0) in a
+            given \textbf{date-range}.
+        \item[Select] data from a \textbf{assignment-list} that is pasted into
+            \modulus\ along with a \textbf{date-range}. This list of
+            assignments could be
+            generated in the step above.
+        \item[View] the \textbf{data} for the \textbf{assignments selected
+                above},
+            for \textbf{students} who \textbf{attempted/completed any/all}
+            assignments in a
+            \textbf{list}, usually part of the list in the first step.
+            filtered by a \textbf{minimum number
+                of unique student attempts/completions} (which could be 0) and
+            a
+            \textbf{date-range}.
+    \end{description}
 \end{xframe}
 
 \begin{xframe}
@@ -215,8 +220,8 @@ of unique student attempts/completions} (which could be 0) and a \textbf{date-ra
             \node at (0,0) {\includegraphics[width=7cm]{zoom.png}};
             \node[fill=white,notice={(-1,-.8)}, text width=3.5cm] at (-.7,.5)
             {\begin{minipage}{3.5cm}\scriptsize\ttfamily
-                    https://assignment054\\ 34
-                    attempts to completion
+                    https://assignment054\\ 85
+                    percent to completion
                 \end{minipage}};
         \end{tikzpicture}
     \end{center}
