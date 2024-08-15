@@ -20,7 +20,7 @@
 \RequirePackage[skip=5pt plus1pt, indent=0pt]{parskip}
 \RequirePackage{enumitem}
 
-\setlist[description]{font=\normalfont\itshape}
+\setlist[description]{font=\normalfont\bf}
 
 \usetikzlibrary{shapes.callouts}
 \tikzset{
