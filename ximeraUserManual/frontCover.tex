@@ -1,0 +1,45 @@
+\setcounter{tocdepth}{1}
+\usepackage{pagecolor}
+\usepackage{ccicons}
+\makeatletter
+\definecolor{bkgndcr}{rgb}{1,1,1}
+\definecolor{txtcr}{rgb}{0,0,0}
+\ifcolor
+\definecolor{bkgndcr}{RGB}{0,20, 0}
+\definecolor{txtcr}{RGB}{100, 200, 255}
+\fi
+\let\othermaketitle\maketitle
+\renewcommand{\maketitle}{
+  \pagestyle{empty}
+  \newgeometry{hmargin={1cm,1cm},vmargin={1cm,1cm}}
+  \pagecolor{bkgndcr}
+  \boldmath % Makes all math text bold
+  \bfseries % Makes all text bold
+  \color{txtcr}
+  \sffamily\flushleft%
+  \!\resizebox{!}{1cm}{\input{../wormLogo/tikzLogo.tex}}\\[0cm]%
+  Interactive\\
+  Mathematics\\
+  Education\\
+  Resources for\\
+  All
+  \enlargethispage{4cm}
+  \vspace*{-3cm}
+  \hspace*{-4cm}\rotatebox{30}{\resizebox{!}{7cm}{\begin{minipage}{1.1cm}\flushright User\\[-.2cm]Manual\end{minipage}}}\hfill
+  \vfil
+  \begin{center}
+    \scalebox{3}{Merriman $\bullet$ Nowell $\bullet$ Snapp}
+  \end{center}
+  \small This document was typeset on \today. \hfill \Large\textsf{\ccbyncsa}\\
+  \small\texttt{GIT COMMIT: \input{../.git/refs/heads/master}}\\
+  \small Source: \texttt{https://github.com/ximeraProject/???}\hfill developed in \textbf{XIMERA}
+\clearpage\pagecolor{white}\color{black}\unboldmath\normalfont\restoregeometry
+\ifnotoc
+\else
+  \tableofcontents\clearpage
+  \clearpage
+\fi
+\pagestyle{main}
+\let\maketitle\othermaketitle
+}
+\makeatother

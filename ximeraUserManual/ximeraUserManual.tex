@@ -1,22 +1,43 @@
 \documentclass{xourse}
 
+\title{User Manual}
+
 \usepackage{manual}
+\title{User Manual}
+\date{2024}
+\author{Bart Snapp}
+
+
+\newif\ifcolor %% for color cover
+\colorfalse    %% add \colortrue before cover art
+%\colortrue
+\input{frontCover.tex}
 
 \title{User Manual}
-\author{Bart Snapp}
+\event{Documentation}
+
+
+
+
 
 \begin{document}
 \begin{abstract}
     How to use Ximera.
 \end{abstract}
 \maketitle
+\twocolumn
+\pagestyle{fancy}
 
-
+\chapterstyle
+\twocolumn
 \activity{introduction}
+
 \activity{setup}
+
 \activity{workflow}
-\activity{exerciseBanks}
+\activity{worksheets}
 \activity{courses}
+\activity{exerciseBanks}
 \activity{graphicsVideosAndInteractives}
 \activity{printing}
 \activity{seeXimeraInAction}
