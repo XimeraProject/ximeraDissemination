@@ -2,6 +2,7 @@
 \usepackage{pagecolor}
 \usepackage{ccicons}
 \makeatletter
+\onecolumn
 \definecolor{bkgndcr}{rgb}{1,1,1}
 \definecolor{txtcr}{rgb}{0,0,0}
 \ifcolor
@@ -22,11 +23,11 @@
   Mathematics\\
   Education\\
   Resources for\\
-  All
-  \enlargethispage{4cm}
-  \vspace*{-3cm}
-  \hspace*{-4.2cm}\rotatebox{30}{\resizebox{!}{7cm}{\begin{minipage}{1.1cm}\flushright User\\[-.2cm]Manual\end{minipage}}}\hfill
-  \vfil
+  All \\
+  \enlargethispage{10cm}
+  \vspace*{-6cm}
+  \hspace*{-3.5cm}\rotatebox{15}{\resizebox{!}{8.7cm}{\begin{minipage}{1.1cm}\flushright User\\[-.2cm]Manual\end{minipage}}}\hfill
+  
   \begin{center}
     \scalebox{3}{Fowler $\bullet$ Obbels $\bullet$ Nowell $\bullet$ Snapp}
   \end{center}
@@ -35,7 +36,7 @@
   \small Source: \texttt{https://github.com/ximeraProject/???}\hfill developed in \textbf{XIMERA}
 \clearpage\pagecolor{white}\color{black}\unboldmath\normalfont\restoregeometry
 \ifnotoc
-\else
+\else\twocolumn
   \tableofcontents\clearpage
   \clearpage
 \fi

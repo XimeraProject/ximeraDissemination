@@ -5,7 +5,7 @@
 \RequirePackage[letterspace=-80]{microtype}
 % \RequirePackage{tikz}
 \RequirePackage{standalone}
-\RequirePackage[includehead,includefoot,margin=1cm,headheight=1cm]{geometry}
+\RequirePackage[landscape,includehead,includefoot,margin=2.5cm,headheight=1cm]{geometry}
 \RequirePackage{stix2}
 \RequirePackage{gillius}
 %\RequirePackage{multicol}
@@ -16,7 +16,7 @@
 \RequirePackage[framemethod=TikZ]{mdframed}
 \RequirePackage{pgf}
 \RequirePackage[skip=5pt plus1pt, indent=0pt]{parskip}
-\RequirePackage{enumitem}
+%\RequirePackage{enumitem}
 \RequirePackage{fancyhdr}
 
 %\setlist[description]{font=\normalfont\itshape}
@@ -99,6 +99,45 @@
 Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt https://github.com/ximeraProject/}
 }
 \fancyfoot[L]{\sffamily\tiny\textbf{
-XIMERA\quad FORM \quad \myrandom \quad PREVIOUS \quad EDITION \quad IS \quad OBSOLETE.
+XIMERA\quad FORM \quad \myrandom \quad GIT \quad COMMIT \quad \otherinput{../.git/refs/heads/master}\quad PREVIOUS \quad EDITION \quad IS \quad OBSOLETE.
 }}
 
+\newcommand\frontstyle{%
+  \def\activitystyle{activity-chapter}
+  \def\maketitle{%
+                {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
+                {\flushleft\LARGE\sffamily\bfseries\@title \par }%3
+                {\vskip .6em\noindent\textit\theabstract\setcounter{problem}{0}\setcounter{section}{0}}%
+                \par\vspace{2em}    
+                \phantomsection\addcontentsline{toc}{section}{\textbf{\@title}}%
+                \setcounter{titlenumber}{0}
+}}
+
+\renewcommand\chapterstyle{%
+  \def\activitystyle{activity-chapter}
+  \normalsize
+  %\onecolumn
+  \def\maketitle{%
+    \addtocounter{titlenumber}{1}%
+                    {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
+                    {\flushleft\LARGE\sffamily\bfseries\thetitlenumber\hspace{1em}\@title \par }%
+                    {\vskip .6em\noindent\textit\theabstract\setcounter{problem}{0}\setcounter{section}{0}}%
+                    \par\vspace{2em}
+                    \phantomsection\addcontentsline{toc}{section}{\textbf{\thetitlenumber\hspace{1em}\@title}}%
+}}
+
+%% Redefine section and subsection
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\boldmath\normalfont\large\bfseries\sffamily}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex \@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\boldmath\normalfont\large\bfseries\sffamily}}
+
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                    {3.25ex \@plus1ex \@minus.2ex}%
+                                    {-1em}%
+                                    {\boldmath\normalfont\normalsize\bfseries\sffamily}}
