@@ -62,7 +62,7 @@ Commit your changes to GitHub and view your
 repository online via a web browser to ensure that the files were deleted.
 \textbf{You are now ready to create new Ximera content!}
 
-\subsection{Setting up a Ximera \texttt{xourse}}
+\section{Setting up a Ximera \texttt{xourse}}
 
 Ximera documents can be ``taped'' together using the \verb|xourse| document
 class.
@@ -70,8 +70,12 @@ A \verb|xourse| file is basically a list of other \verb|ximera| files and even
 other \verb|xourse| files.
 The \verb|xourse| file for \textit{First Steps in Ximera} can be found here:
 \begin{center}
-  \url{https:/github.com/ximeraProject/ximeraFirstSteps/aFirstStepInXimera.tex}
+
+  \url{https://github.com/ximeraProject/ximeraFirstSteps/aFirstStepInXimera.tex}
 \end{center}
+
+This gets complicated because we insist that Ximera documents must compiled not
+only when in a \verb|xourse| file, but also individually.
 
 %\begin{tikzpicture}
 %\node{
@@ -140,8 +144,6 @@ These will both appear on the course website in the navigation area, so the
 abstract should be short. At this stage your activity contains a title and an
 abstract, but is otherwise blank.
 
-
-
 \item Type \verb!xake bake! to compile the tex documents, then
 \verb!xake frost! to create a publication commit on top of your source
 commit.
@@ -154,8 +156,6 @@ https://ximera.osu.edu/turnloon/anExampleCourse
 form of a simple exercise.  Update the file
 \verb!theFirstActivity.tex!  you created above so that it looks like
 the following.
-
-
 
 \subsection{Creating further activities}
 From here you can create further \link[Ximera]{http://ximera.osu.edu}
