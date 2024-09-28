@@ -14,14 +14,27 @@
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 
-\title{Ximera: A \\LaTeX\-Based Open-Source Platform for Interactive STEM
+\title{Ximera: A \LaTeX{-}Based Open-Source Platform for Interactive
     Education}
 
 % repeat info for each author; comment out items that don't apply.
-\author{First Last}
-\address{Street Address \\ Town, Postal \\ Country}
-\netaddress{user (at) example dot org}
-\personalURL{https://example.org/~user/}
+\author{Fowler Jim}
+\address{231 W. 18th Ave \\ Columbus, Ohio 43210 \\ USA}
+\netaddress{snapp.291@osu.edu}
+\personalURL{https://kisonecat.com/}
+\author{Nowell Jason}
+\address{1400 Stadium Rd \\ Gainesville, Florida 32611 \\ USA}
+\netaddress{JNowell@ufl.edu}
+\personalURL{https://www.jasonnowell.com/}
+\author{Obbels Wim}
+\address{Celestijnenlaan 200B \\ 3001 Leuven, \\ Belgium}
+\netaddress{wim.obbels@kuleuven.be}
+\personalURL{https://www.kuleuven.be/wieiswie/nl/person/00045050}
+\author{Snapp Bart}
+\address{231 W. 18th Ave \\ Columbus, Ohio 43210 \\ USA}
+\netaddress{snapp.14@osu.edu}
+\personalURL{https://people.math.osu.edu/snapp.14/}
+
 %\ORCID{0}
 
 % Please state if you'd like to receive a physical copy of the TUGboat
@@ -38,35 +51,36 @@
 
 \section{Introduction}
 
-Ximera is an open-source platform designed to create interactive online educational
-content using \LaTeX\ as the source code. Initially developed at The Ohio State
+Ximera is an open-source platform designed to create interactive online
+educational
+content using \LaTeX\ as the source code. Initially developed at the Ohio State
 University, Ximera is now used by over a dozen institutions, including
 the University of Florida and KU Leuven. By leveraging the semantic structure
-of \LaTeX\ and integrating tools like Desmos, GeoGebra, and YouTube, Ximera allows
-educators to generate high-quality print materials \emph{and} interactive online
-content from the same source.
+of \LaTeX\ and integrating tools like Desmos, GeoGebra, and YouTube, Ximera
+allows educators to generate high-quality print materials \emph{and}
+interactive online content simultaneously from the a single source.
 
-To be clear, Ximera is designed to create educational content. Our goals are
-distinct from those of TeX4ht and MathJax.
+To be clear, Ximera is designed to create \emph{educational content}. Our goals
+are distinct from those of \TeX4ht and MathJax. While \TeX4ht seeks to
+transform \LaTeX\ into \HTML, there is no additional interactivity. Moreover, while \TeX4ht attempts to recreate the look of a \PDF\ online, 
+Ximera makes no such attempt to replicate a print-book experience. Ximera instead attempts to do something reasonable
+online, with the given semantic markup. To this end, 
+Ximera \emph{uses} \TeX4ht to convert a majority of the content to \HTML. In turn,
+\TeX4ht \emph{uses} MathJax to render mathematics online.
 
 \section{Authoring Content in Ximera}
 
+Ximera documents are written in \LaTeX, with the document class providing additional 
+ commands supporting interactive elements, such as answer boxes,
+multiple-choice questions, and other virtual manipulates. 
 
-Ximera documents are written in \LaTeX, but the platform extends the standard
-\LaTeX\ commands to support interactive elements, such as answer boxes,
-multiple-choice questions, and dynamic graphs. Authors write the content on
-their own machines using tools such as Visual Studio Code, Docker, and git for
+
+Authors write the content on their own machines using tools such as Visual Studio Code, Docker, and git for
 version control. This local setup allows authors to preview both PDF and HTML
 outputs before publishing the content online.
 
-Once the Ximera package is installed from CTAN, authors can immediately
-generate PDF versions of their materials. However, to publish an online
-version, an extra build environment, known as xake, is required. This build
-environment compiles \LaTeX\ into HTML and facilitates deployment to a public
-server at ximera.osu.edu or to self-hosted servers. The result is a seamless
-transition between static print content and dynamic, interactive online
-resources.
-Document Class Options
+
+\subsection{Document Class Options}
 
 Ximera's flexibility extends to how content is displayed. By default, Ximera
 documents show all content, including answers and instructor notes. This is
@@ -77,26 +91,110 @@ for distribution as student worksheets.
 
 For example, the following document would display answers in development mode
 but hide them when compiled with the handout option:
-\begin{verbatim}
+\begin{verbatim}[\small] 
 \documentclass[handout]{ximera}
 \begin{document}
 \begin{problem}
-What is the answer to life, the universe, and everything?
+What is the answer to life, the universe, 
+and everything?
+\begin{solution}
 \[
     \answer{42}
 \]
+\end{solution}
 \end{problem}
-\end{document}
+\end{document}}
 \end{verbatim}
 This flexibility ensures that the same source document can be used for both
 interactive online learning and traditional printed materials.
 
 
+NOTE THE NESTING OF ENVIRONMENTS!
 
-\section{Abbreviation macros and typing}
 
-The \texttt{ltugboat} class provides many abbreviation commands; here
-are a few of the most common:
+\subsection{Interactive Elements and Features}
+
+Ximera provides several \LaTeX\ commands to create interactive elements within
+documents, enhancing student engagement. These commands include:
+
+\cs{answer}: Allows students to input answers directly in the online platform.
+For example:
+
+
+\begin{verbatim}[\small]
+\begin{problem}
+Differentiate $f(x) = x^2$.
+\[
+    \answer{2x}
+\]
+\end{problem}
+\end{verbatim}
+
+\verb|choice| environments: Used to create multiple-choice and “select all that
+apply” questions, respectively. These questions can be graded automatically,
+providing instant feedback to students.
+
+\subsection{Graphics} NEEDS TO BE WRITTEN: GRAPHICS PATHS!
+
+and Visualization: Ximera integrates with external tools like Desmos
+and GeoGebra to create dynamic, interactive graphs that students can manipulate
+in real time. Embedding a Desmos graph, for example, is as simple as:
+
+\begin{verbatim}[\small]
+\begin{center}
+    \desmos{zwywds7med}{800}{600}
+\end{center}
+\end{verbatim}
+Ximera also supports embedding YouTube videos, allowing educators to integrate
+multimedia resources into their lessons seamlessly. These interactive features
+enrich the learning experience, making complex STEM concepts more accessible
+and engaging for students.
+
+\section{Deploying Ximera content online}
+
+Deploying Ximera courses involves setting up a backend infrastructure that
+allows seamless transition from development to publication. Ximera relies
+heavily on Git for version control and Docker for consistent build
+environments. Here's an overview of how deployment works.
+The Role of Docker in Deployment
+
+Docker is a crucial part of the Ximera deployment process, enabling users to
+manage dependencies and software versions consistently across platforms. Ximera
+uses Docker containers to ensure that all required software (e.g., LATEX) is
+available for compiling documents and deploying them online.
+
+To get started, users must install Docker on their machines. Docker allows
+authors to test and compile their content locally before deploying it to the
+public Ximera server at ximera.osu.edu or a self-hosted server. Once Docker is
+set up, users can interact with it through Visual Studio Code, using a built-in
+terminal to execute commands for compiling and deploying Ximera documents.
+Using Xake to ``Bake'' Ximera Documents
+
+The Ximera build system, known as xake, automates the process of compiling
+LATEX documents into both PDFs and interactive HTML files. The first time a
+document is compiled, Xake downloads the required Docker containers and
+processes the content. After the initial run, subsequent builds are much
+faster, only compiling updated files.
+
+To start the build process, users simply press the ``Bake'' button in Visual
+Studio Code or use the following command in the terminal:
+
+bash
+
+./scripts/xmlatex -i bash
+
+Once compiled, the content is ready for deployment.
+Deploying to a Ximera Server
+
+After "baking" the content with Xake, the next step is to deploy the course
+online. Ximera allows deployment to either a public server hosted by OSU or an
+institution’s self-hosted server. To ensure security, Ximera requires users to
+have GPG keys for authentication. These keys ensure that only authorized users
+can deploy or update courses.
+
+To deploy a course, users need to edit the .ximeraserve file in the repository.
+This file contains important information such as the deployment URL and GPG
+key. The following is an example configuration in .ximeraserve:
 
 % verbatim blocks are often better in \small
 \begin{verbatim}[\small]
