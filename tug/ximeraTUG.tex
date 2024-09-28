@@ -62,23 +62,26 @@ interactive online content simultaneously from the a single source.
 
 To be clear, Ximera is designed to create \emph{educational content}. Our goals
 are distinct from those of \TeX4ht and MathJax. While \TeX4ht seeks to
-transform \LaTeX\ into \HTML, there is no additional interactivity. Moreover, while \TeX4ht attempts to recreate the look of a \PDF\ online, 
-Ximera makes no such attempt to replicate a print-book experience. Ximera instead attempts to do something reasonable
-online, with the given semantic markup. To this end, 
-Ximera \emph{uses} \TeX4ht to convert a majority of the content to \HTML. In turn,
+transform \LaTeX\ into \HTML, there is no additional interactivity. Moreover,
+while \TeX4ht attempts to recreate the look of a \PDF\ online,
+Ximera makes no such attempt to replicate a print-book experience. Ximera
+instead attempts to do something reasonable
+online, with the given semantic markup. To this end,
+Ximera \emph{uses} \TeX4ht to convert a majority of the content to \HTML. In
+turn,
 \TeX4ht \emph{uses} MathJax to render mathematics online.
 
 \section{Authoring Content in Ximera}
 
-Ximera documents are written in \LaTeX, with the document class providing additional 
- commands supporting interactive elements, such as answer boxes,
-multiple-choice questions, and other virtual manipulates. 
+Ximera documents are written in \LaTeX, with the document class providing
+additional
+commands supporting interactive elements, such as answer boxes,
+multiple-choice questions, and other virtual manipulates.
 
-
-Authors write the content on their own machines using tools such as Visual Studio Code, Docker, and git for
+Authors write the content on their own machines using tools such as Visual
+Studio Code, Docker, and git for
 version control. This local setup allows authors to preview both PDF and HTML
 outputs before publishing the content online.
-
 
 \subsection{Document Class Options}
 
@@ -108,9 +111,7 @@ and everything?
 This flexibility ensures that the same source document can be used for both
 interactive online learning and traditional printed materials.
 
-
 NOTE THE NESTING OF ENVIRONMENTS!
-
 
 \subsection{Interactive Elements and Features}
 
@@ -119,7 +120,6 @@ documents, enhancing student engagement. These commands include:
 
 \cs{answer}: Allows students to input answers directly in the online platform.
 For example:
-
 
 \begin{verbatim}[\small]
 \begin{problem}
@@ -196,90 +196,16 @@ To deploy a course, users need to edit the .ximeraserve file in the repository.
 This file contains important information such as the deployment URL and GPG
 key. The following is an example configuration in .ximeraserve:
 
-% verbatim blocks are often better in \small
-\begin{verbatim}[\small]
-\AllTeX \AMS \BibTeX \Cplusplus \CTAN \DVI
-\HTML \\LaTeX\e \macOS \MathML \MF \PDF \PS
-\TUB \TUG \tug \WEB \Xe\LaTeX\ \XeTeX \XML
-\end{verbatim}
 
-A few other typing conventions:
+\section{Ongoing Development}
 
-\begin{itemize}
-    \item For an em-dash with our spacing (preferred to \verb|---|):
-          \cs{Dash}, with output\Dash like this.
+BETTER DESCRIPTION
 
-    \item For initialisms in all caps:
-          \verb|\acro{FRED}|,\\ with output: \acro{FRED}.
-
-    \item A literal control sequence:
-          \verb|\cs{fred}|,\\ with output: \cs{fred}.
-
-    \item A syntactic metavariable:
-          \verb|\meta{fred}|,\\ with output: \meta{fred}.
-
-    % \item A title:
-    %       \verb|\titleref{Book of Fred}|,\\ with output: \titleref{Book of
-    %           Fred}.
-\end{itemize}
-
-We recommend using \cs{begin}\tubbraced{verbatim}\texttt{[\small] ...}
-\cs{end}\tubbraced{verbatim} for code blocks, since we prefer not to
-colorize code when printed. But if you want to have some font changes,
-our recommended settings for the \texttt{listings} package are in the
-\texttt{ltubguid} manual mentioned below.
-
-Please put punctuation outside quotes, ``like this'', unless the
-punctuation is actually part of the quoted material.
-
-Also, please put punctuation after footnotes.
-
-\section{Figures}
-
-For \TUB, the standard \texttt{figure} environment produces a
-column-width figure; this is desirable when at all possible. The
-\texttt{figure*} environment produces a full-width (across both columns)
-figure when needed. Analogously for \texttt{table} and \texttt{table*}.
-
-Please put captions below figures, but above tables.
-
-Don't worry overmuch about figure placements, as they will likely change
-with editing.
-
-\begin{figure}
-    This is a column-width figure, made with \\
-    \cs{begin}\tubbraced{figure}. Use \tubbraced{figure*} for a full-width
-    (double-column) figure.
-    %
-    \caption{Caption for column-width figure.}
-    \label{fig.example}
-\end{figure}
-
-%\begin{figure*}
-%A full-width figure, made with \cs{begin}\tubbraced{figure*}.
-%\caption{Caption for full-width figure.}
-%\label{fig.fullwidth}
-%\end{figure*}
-
-\section{References}
-
-For references to other issues of \TUB, please use the format
-\textsl{volno}:\textsl{issno}, e.g., ``\TUB\ 32:1''.
-
-The primary \TUB\ style documentation is the \texttt{ltubguid} manual,
-available online at \tbsurl{ctan.org/pkg/tugboat} or locally with
-\texttt{texdoc tugboat}. For general \CTAN\ package references, we
-recommend that form, using \texttt{/pkg/}. If you need to refer to a
-specific file on \CTAN, use:\\
-\texttt{https://mirror.ctan.org/\textsl{path}}
-
-We recommend using \BibTeX\ (but don't require it), with the
-\texttt{tugboat} \BibTeX\ style. The \texttt{biblio} directory on \CTAN,
-\tbsurl{ctan.org/pkg/biblio}, provides files \texttt{tugboat.bib} with a
-complete bibliography of \TUB, \texttt{texbook3.bib} with many common
-\TeX-related books and articles, and plenty more.
-
-Email \verb|tugboat@tug.org| with any questions.
+Ximera is constantly evolving. New features in development include a Docker
+setup for easier deployment and a serverless option that enables document
+compilation directly in the browser. The Ximera team is also working on
+expanding gradebook functionality and adding more tutorials and examples to
+help educators get started with the platform.
 
 \bibliographystyle{tugboat} % tugboat's bibtex style
 \nocite{book-minimal}	    % make the example bibliography non-empty
