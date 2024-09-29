@@ -18,19 +18,19 @@
     Education}
 
 % repeat info for each author; comment out items that don't apply.
-\author{Fowler Jim}
+\author{Jim Fowler}
 \address{231 W. 18th Ave \\ Columbus, Ohio 43210 \\ USA}
-\netaddress{snapp.291@osu.edu}
+\netaddress{fowler.291@osu.edu}
 \personalURL{https://kisonecat.com/}
-\author{Nowell Jason}
+\author{Jason Nowell}
 \address{1400 Stadium Rd \\ Gainesville, Florida 32611 \\ USA}
 \netaddress{JNowell@ufl.edu}
 \personalURL{https://www.jasonnowell.com/}
-\author{Obbels Wim}
+\author{Wim Obbels}
 \address{Celestijnenlaan 200B \\ 3001 Leuven, \\ Belgium}
 \netaddress{wim.obbels@kuleuven.be}
 \personalURL{https://www.kuleuven.be/wieiswie/nl/person/00045050}
-\author{Snapp Bart}
+\author{Bart Snapp}
 \address{231 W. 18th Ave \\ Columbus, Ohio 43210 \\ USA}
 \netaddress{snapp.14@osu.edu}
 \personalURL{https://people.math.osu.edu/snapp.14/}
@@ -57,10 +57,10 @@ content using \LaTeX\ as the source code. Initially developed at the Ohio State
 University, Ximera is now used by over a dozen institutions, including
 the University of Florida and KU Leuven. By leveraging the semantic structure
 of \LaTeX\ and integrating tools like Desmos, GeoGebra, and YouTube, Ximera
-allows educators to generate high-quality print materials \emph{and}
-interactive online content simultaneously from the a single source.
+allows educators to generate high-quality \PDF\ print materials \emph{and}
+interactive online content simultaneously from a single source.
 
-To be clear, Ximera is designed to create \emph{educational content}. Our goals
+To be clear, Ximera is designed to produce \emph{educational content}. Our goals
 are distinct from those of \TeX4ht and MathJax. While \TeX4ht seeks to
 transform \LaTeX\ into \HTML, there is no additional interactivity. Moreover,
 while \TeX4ht attempts to recreate the look of a \PDF\ online,
@@ -92,9 +92,6 @@ LIST COMMANDS AND EXPLAIN LIKE
 \cs{pdfOnly}
 \cs{prompt}
 \cs{link}
-
-
-
 
 \subsection{Document Class Options}
 
@@ -165,21 +162,34 @@ and engaging for students.
 
 \section{Deploying Ximera content online}
 
-Deploying Ximera courses involves setting up a backend infrastructure that
-allows seamless transition from development to publication. Ximera relies
-heavily on Git for version control and Docker for consistent build
-environments. Here's an overview of how deployment works.
-The Role of Docker in Deployment
+Ximera relies heavily on Git for version control and we currently require that
+content be hosted in a git repository for online deployment. In particular,
+\emph{all source files must be commited to the git repository}.
 
-Docker is a crucial part of the Ximera deployment process, enabling users to
-manage dependencies and software versions consistently across platforms. Ximera
-uses Docker containers to ensure that all required software (e.g., LATEX) is
-available for compiling documents and deploying them online.
+\subsection{Docker and Visual Studio Code}
 
-To get started, users must install Docker on their machines. Docker allows
-authors to test and compile their content locally before deploying it to the
-public Ximera server at ximera.osu.edu or a self-hosted server. Once Docker is
-set up, users can interact with it through Visual Studio Code, using a built-in
+Our users are not programmers. With this in mind, we need a simple, consistent,
+deploy process
+across all platforms. The Ximera developers mostly use Linux and the initial
+deployment tools were written
+for Linux users. Supporting \macOS\ and Windows has been something of a
+challenge. Our current strategy is to use Docker and VS Code to provide a
+consistent build
+environment for all users. Docker provides \emph{containers}, allowing users to manage
+dependencies and software versions consistently across platforms. VS Code has
+good integration with Docker, and provides a \UNIX-like shell through
+\emph{Windows Subsystem for Linux} (WSL).
+
+
+Once Docker and VS Code are installed and set up, we provide a GitHub
+repository
+\begin{center}
+    \url{https://github.com/ximeraProject/ximeraFirstSteps}
+\end{center}
+Within this repository are directories \verb!scripts! and \verb!.vscode!.
+The HERE HERE HERE
+
+sers can interact with it through Visual Studio Code, using a built-in
 terminal to execute commands for compiling and deploying Ximera documents.
 Using Xake to ``Bake'' Ximera Documents
 
@@ -209,8 +219,14 @@ To deploy a course, users need to edit the .ximeraserve file in the repository.
 This file contains important information such as the deployment URL and GPG
 key. The following is an example configuration in .ximeraserve:
 
-
 \section{Ongoing Development}
+
+As of
+the writing of this document, Ximera uses Docker containers to deploy with \TeX
+Live 2019.
+We are working (with the assistance of Michal Hoftich) to upgrade to a more
+recent version of \TeX Live.
+available for compiling documents and deploying them online.
 
 BETTER DESCRIPTION
 
