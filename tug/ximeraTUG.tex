@@ -114,8 +114,64 @@ multiple-choice questions, and other virtual manipulates.
 
 Authors write the content on their own machines using tools such as Visual
 Studio Code, Docker, and git for
-version control. This local setup allows authors to preview both PDF and HTML
-outputs before publishing the content online.
+version control. This local setup allows authors to preview both \PDF\ and
+\HTML\ outputs before publishing the content online. Online content requires
+some organization and consistency that isn't require with regular \LaTeX\
+documents. Ximera courses are created with two \LaTeX\ documents, a
+``main'' document of document class \verb!xourse! and all content documents,
+which use document class \verb!ximera!. All Ximera files of either document
+class \verb!ximera! or \verb!xourse! \emph{must} compile on their own for
+successful deployment online. We give an example \verb!xourse! file below:
+\begin{verbatim}[\small]
+\documentclass{xourse}
+\title{A Collection of Ximera Activities}
+\begin{document}
+\begin{abstract}
+An example including activities in a Xourse.
+\end{abstract}
+\maketitle
+\activity{aXimeraActivity.tex}
+\activity{anotherActivity.tex}
+\end{document}
+\end{verbatim}
+where each \verb!*.tex! file above is file of document class \verb!ximera! and
+might look something like this:
+\begin{verbatim}[\small] 
+\documentclass{ximera}
+\title{Some activity}
+\begin{document}
+\begin{abstract}
+An example activity.
+\end{abstract}
+\maketitle
+\begin{problem}
+What is the answer to life, the universe, 
+and everything?
+\begin{solution}
+\[
+    \answer{42}
+\]
+\end{solution}
+\end{problem}
+\end{document}
+\end{verbatim}
+
+
+
+
+We can add functionality and generality, via user defined commands, to the
+document via a preamble, or macros document. Since every \verb!*.tex! file with
+a \verb!\documentclass! must compile, the preamble file must be accessible  by
+all files, with special attention paid to the directory paths.
+
+For Ximera documents, the purpose of a preamble is to ensure \textbf{all files
+    compile consistently. It is not for cosmetic changes.} Cosmetic changes to
+Ximera environments may result in unpredictable behavior online.
+With that said, Ximera provides several additional commands to help with the
+construction of custom
+\PDF s, with extensive cosmetic changes. They
+\cs{pdfOnly}, \cs{prompt}, \cs{link}, \cs{activity}, \cs{practice},
+\cs{sectionstyle},\cs{chapterstyle} and the environment \verb!onlineOnly!.
 
 \subsection{Special Ximera Commands and Environments}
 
@@ -160,19 +216,6 @@ environments:
 As of our current version, we cannot create new theorem-like environments to be
 deployed online.
 
-We can add functionality and generality, via user defined commands, to the
-document via a preamble, or macros document. Since every \verb!*.tex! file with
-a \verb!\documentclass! must compile, the preamble file must be accessible  by
-all files, with special attention paid to the directory paths.
-
-For Ximera documents, the purpose of a preamble is to ensure \textbf{all files
-    compile consistently. It is not for cosmetic changes.} Cosmetic changes to
-Ximera environments may result in unpredictable behavior online.
-With that said, Ximera provides several additional commands to help with the construction of custom
-\PDF s, with extensive cosmetic changes. They
-\cs{pdfOnly}, \cs{prompt}, \cs{link}, \cs{activity}, \cs{practice},
-\cs{sectionstyle},\cs{chapterstyle} and the environment \verb!onlineOnly!.
-
 \subsection{Document Class Options}
 
 Ximera's flexibility extends to how content is displayed. By default, Ximera
@@ -196,7 +239,7 @@ and everything?
 \]
 \end{solution}
 \end{problem}
-\end{document}}
+\end{document}
 \end{verbatim}
 This flexibility ensures that the same source document can be used for both
 interactive online learning and traditional printed materials.
