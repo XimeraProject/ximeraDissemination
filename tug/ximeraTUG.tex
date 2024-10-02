@@ -14,6 +14,10 @@
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{standalone}
+
 \title{Ximera: A \LaTeX{-}Based Open-Source Platform for Interactive
     Education}
 
@@ -59,8 +63,39 @@ the University of Florida and KU Leuven. By leveraging the semantic structure
 of \LaTeX\ and integrating tools like Desmos, GeoGebra, and YouTube, Ximera
 allows educators to generate high-quality \PDF\ print materials \emph{and}
 interactive online content simultaneously from a single source.
+\begin{center}
+    \begin{tikzpicture}
+        \node at (-1.8,.2)
+        {\resizebox{.65cm}{!}{\input{document.tex}}};
+        \node at (-1.8,.2) {\small \PDF};
+        \node at (-2,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
+        \node at (-2,0) {\small \PDF};
+        \node at (-2.2,-.2)
+        {\resizebox{.65cm}{!}{\input{document.tex}}};
+        \node at (-2.2,-.2) {\small \PDF};
+        \draw[->] (-.6,0) -- (-1.4,0);
+        \draw[->] (-.6,.2) -- (-1.4,.2);
+        \draw[->] (-.6,-.2) -- (-1.4,-.2);
+        \node at (0,0) {\resizebox{1cm}{!}{\input{document.tex}}};
+        \node at (0,0) {\LaTeX};
+        \draw[->] (.6,0) -- (1.4,0);
 
-To be clear, Ximera is designed to produce \emph{educational content}. Our goals
+        \node at (2,0) {\resizebox{1cm}{!}{\input{server.tex}}};
+        \draw[->] (2.6,0) -- (3.4,0);
+        \node at (4,0) {\resizebox{1cm}{!}{\input{computer.tex}}};
+        \node at (-2,-1) {Various};
+        \node at (-2,-1.4) {\PDF s};
+        \node at (0,-1) {Single};
+        \node at (0,-1.4) {Source};
+        \node at (2,-1) {Ximera};
+        \node at (2,-1.4) {Server};
+        \node at (4,-1) {Students};
+        \node at (4,-1.4) {Engage};
+
+    \end{tikzpicture}
+\end{center}
+To be clear, Ximera is designed to produce \emph{educational content}. Our
+goals
 are distinct from those of \TeX4ht and MathJax. While \TeX4ht seeks to
 transform \LaTeX\ into \HTML, there is no additional interactivity. Moreover,
 while \TeX4ht attempts to recreate the look of a \PDF\ online,
@@ -74,8 +109,7 @@ turn,
 \section{Authoring Content in Ximera}
 
 Ximera documents are written in \LaTeX, with the document class providing
-additional
-commands supporting interactive elements, such as answer boxes,
+additional commands supporting interactive elements, such as answer boxes,
 multiple-choice questions, and other virtual manipulates.
 
 Authors write the content on their own machines using tools such as Visual
@@ -85,13 +119,59 @@ outputs before publishing the content online.
 
 \subsection{Special Ximera Commands and Environments}
 
-LIST ENVIRONMENTS
+The Ximera documentclass comes with many packages preloaded:
+\verb!enumitem!,
+\verb!titlesec!,
+\verb!titletoc!,
+\verb!titling!,
+\verb!url!,
+\verb!xcolor!,
+\verb!tikz!,
+\verb!pgfplots!,
+\verb!fancyvrb!,
+\verb!forloop!,
+\verb!environ!,
+\verb!amssymb!,
+\verb!amsmath!,
+\verb!amsthm!,
+\verb!xifthen!,
+\verb!multido!,
+\verb!listings!,
+\verb!xkeyval!,
+\verb!comment!,
+\verb!gettitlestring!,
+\verb!nameref!,
+\verb!epstopdf!, and
+\verb!hyperref!.
 
-LIST COMMANDS AND EXPLAIN LIKE
+The documentclass also provides support for the following theorem-like
+environments:
+\verb!algorithm!, \verb!axiom!, \verb!claim!, \verb!conclusion!,
+\verb!condition!, \verb!conjecture!, \verb!corollary!, \verb!criterion!,
+\verb!definition!, \verb!example!, \verb!explanation!, \verb!exercise!,
+\verb!exploration!,
+\verb!fact!, \verb!formula!, \verb!hypothesis!, \verb!idea!, \verb!lemma!,
+\verb!model!,
+\verb!notation!, \verb!observation!, \verb!paradox!, \verb!proof!,
+\verb!problem!,
+\verb!procedure!,
+\verb!proposition!, \verb!question!, \verb!remark!, \verb!solution!,
+\verb!summary!, \verb!template!, \verb!theorem!, and \verb!warning!.
+As of our current version, we cannot create new theorem-like environments to be
+deployed online.
 
-\cs{pdfOnly}
-\cs{prompt}
-\cs{link}
+We can add functionality and generality, via user defined commands, to the
+document via a preamble, or macros document. Since every \verb!*.tex! file with
+a \verb!\documentclass! must compile, the preamble file must be accessible  by
+all files, with special attention paid to the directory paths.
+
+For Ximera documents, the purpose of a preamble is to ensure \textbf{all files
+    compile consistently. It is not for cosmetic changes.} Cosmetic changes to
+Ximera environments may result in unpredictable behavior online.
+With that said, Ximera provides several additional commands to help with the construction of custom
+\PDF s, with extensive cosmetic changes. They
+\cs{pdfOnly}, \cs{prompt}, \cs{link}, \cs{activity}, \cs{practice},
+\cs{sectionstyle},\cs{chapterstyle} and the environment \verb!onlineOnly!.
 
 \subsection{Document Class Options}
 
@@ -175,11 +255,11 @@ deployment tools were written
 for Linux users. Supporting \macOS\ and Windows has been something of a
 challenge. Our current strategy is to use Docker and VS Code to provide a
 consistent build
-environment for all users. Docker provides \emph{containers}, allowing users to manage
+environment for all users. Docker provides \emph{containers}, allowing users to
+manage
 dependencies and software versions consistently across platforms. VS Code has
 good integration with Docker, and provides a \UNIX-like shell through
 \emph{Windows Subsystem for Linux} (WSL).
-
 
 Once Docker and VS Code are installed and set up, we provide a GitHub
 repository
@@ -200,24 +280,12 @@ processes the content. After the initial run, subsequent builds are much
 faster, only compiling updated files.
 
 To start the build process, users simply press the ``Bake'' button in Visual
-Studio Code or use the following command in the terminal:
-
-bash
-
-./scripts/xmlatex -i bash
-
-Once compiled, the content is ready for deployment.
-Deploying to a Ximera Server
-
+Studio Code
 After "baking" the content with Xake, the next step is to deploy the course
 online. Ximera allows deployment to either a public server hosted by OSU or an
 institution’s self-hosted server. To ensure security, Ximera requires users to
 have GPG keys for authentication. These keys ensure that only authorized users
 can deploy or update courses.
-
-To deploy a course, users need to edit the .ximeraserve file in the repository.
-This file contains important information such as the deployment URL and GPG
-key. The following is an example configuration in .ximeraserve:
 
 \section{Ongoing Development}
 
@@ -227,7 +295,41 @@ Live 2019.
 We are working (with the assistance of Michal Hoftich) to upgrade to a more
 recent version of \TeX Live.
 available for compiling documents and deploying them online.
-
+is focused on two critical aspects
+of Ximera: Streamlining the deployment process and expanding LTI 1.3
+support.
+We are leveraging Docker containers for deployment and designing an
+assignment-grade database to seamlessly serve learners at institutions that
+support LTI 1.3. Additionally, we are providing alternatives for
+self-learners
+and situations where LTI 1.3 support is not available.
+\begin{center}
+    \begin{tikzpicture}
+        \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120,
+            aspect=2, inner ysep=1em,scale=.8] {};
+        \node at (-3,1) {LMS};
+        \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+        \node at (-3,-2) {Students with LTI};
+        \draw[->] (-3.1,-.4) -- (-3.1,.4);
+        \draw[<-] (-2.9,-.4) -- (-2.9,.4);
+        \node at (0,0) {\resizebox{1cm}{!}{\input{modulus.tex}}};
+        \node at (0,-1) {Assignment};
+        \node at (0,-1.4) {Database};
+        \draw[->] (-2,.8) -- (-.6,.2);
+        \draw[<-] (-2.1,.6) -- (-.7,0);
+        \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
+        \node at (3,-2) {Ximera};
+        \node at (3,-2.4) {Server};
+        \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+        \node at (3,2) {Self-learner};
+        \draw[->] (3.1,-.4) -- (3.1,.4);
+        \draw[<-] (2.9,-.4) -- (2.9,.4);
+        \draw[->] (2,.8) -- (.6,.2);
+        \draw[<-] (2.1,.6) -- (.7,0);
+        \draw[->] (2.3,-1) -- (.6,-.4);
+        \draw[<-] (2.4,-.8) -- (.7,-.2);
+    \end{tikzpicture}
+\end{center}
 BETTER DESCRIPTION
 
 Ximera is constantly evolving. New features in development include a Docker
