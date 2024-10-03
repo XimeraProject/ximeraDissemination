@@ -187,50 +187,21 @@ effect on online deployment.
 The Ximera documentclass comes with many packages preloaded, including TikZ.
 
 The documentclass also provides support for the following theorem-like
-environments:
-\verb!algorithm!, \verb!axiom!, \verb!claim!, \verb!conclusion!,
-\verb!condition!, \verb!conjecture!, \verb!corollary!, \verb!criterion!,
-\verb!definition!, \verb!example!, \verb!explanation!, \verb!exercise!,
-\verb!exploration!,
-\verb!fact!, \verb!formula!, \verb!hypothesis!, \verb!idea!, \verb!lemma!,
-\verb!model!,
-\verb!notation!, \verb!observation!, \verb!paradox!, \verb!proof!,
-\verb!problem!,
-\verb!procedure!,
-\verb!proposition!, \verb!question!, \verb!remark!, \verb!solution!,
-\verb!summary!, \verb!template!, \verb!theorem!, and \verb!warning!.
+environments. We refer the reader to either the Ximera User Manual (Drafted at
+the time of this writing) or to the Ximera~\LaTeX documentation.
+% \verb!algorithm!, \verb!axiom!, \verb!claim!, \verb!conclusion!,
+% \verb!condition!, \verb!conjecture!, \verb!corollary!, \verb!criterion!,
+% \verb!definition!, \verb!example!, \verb!explanation!, \verb!exercise!,
+% \verb!exploration!,
+% \verb!fact!, \verb!formula!, \verb!hypothesis!, \verb!idea!, \verb!lemma!,
+% \verb!model!,
+% \verb!notation!, \verb!observation!, \verb!paradox!, \verb!proof!,
+% \verb!problem!,
+% \verb!procedure!,
+% \verb!proposition!, \verb!question!, \verb!remark!, \verb!solution!,
+% \verb!summary!, \verb!template!, \verb!theorem!, and \verb!warning!.
 As of our current version, we cannot create new theorem-like environments to be
 deployed online.
-
-\subsection{Document Class Options}
-
-Ximera's flexibility extends to how content is displayed. By default, Ximera
-documents show all content, including answers and instructor notes. This is
-useful for authors during the development phase, as it ensures they can review
-the complete content. However, for classroom use, Ximera provides the handout
-option, which suppresses answers and interactive elements, making it suitable
-for distribution as student worksheets.
-
-For example, the following document would display answers in development mode
-but hide them when compiled with the handout option:
-\begin{verbatim}[\small] 
-\documentclass[handout]{ximera}
-\begin{document}
-\begin{problem}
-What is the answer to life, the universe, 
-and everything?
-\begin{solution}
-\[
-    \answer{42}
-\]
-\end{solution}
-\end{problem}
-\end{document}
-\end{verbatim}
-This flexibility ensures that the same source document can be used for both
-interactive online learning and traditional printed materials.
-
-NOTE THE NESTING OF ENVIRONMENTS!
 
 \subsection{Answer types}
 
@@ -258,11 +229,9 @@ providing instant feedback to students.
 The preferred method of including graphics in a Ximera document is by using
 TikZ. With that said, authors can also use \cs{includegraphics}. We advise
 setting graphics paths in the preamble, so that all files can find them
-regardless of their location in the file structure. Individual Ximera files as well as Xourse files 
-must be able to load the graphics. 
-
-
-
+regardless of their location in the file structure. Individual Ximera files as
+well as Xourse files
+must be able to load the graphics.
 
 \subsection{Interactive Elements}
 
@@ -275,25 +244,61 @@ in real time. Embedding a Desmos graph, for example, is as simple as:
     \desmos{zwywds7med}{800}{600}
 \end{center}
 \end{verbatim}
-Ximera also supports similar embeddings of YouTube videos, allowing educators to integrate
-multimedia resources into their lessons. 
+Ximera also supports similar embeddings of YouTube videos, allowing educators
+to integrate
+multimedia resources into their lessons.
 
+\subsection{Custom Validators}
 
+Authors familier with JavaScript can use the environment \verb!javascript! to
+create new ways of validating answers.
+An example of this can be seen at:
+\begin{center}
+    https://xronos.clas.ufl.edu/mac1140exploreone/exploreFunctionsOne/explorePolynomials/Practice/factoringGeneral-Practice1
+\end{center}
 
+\subsection{Document Class Options}
 
+By default, Ximera documents show all content. Alll, including answers and
+instructor
+notes. This is useful for authors during the development phase, as it ensures
+they can review
+the complete content. However, for classroom use, Ximera provides the handout
+option, which suppresses answers and interactive elements, making it suitable
+for distribution as student worksheets.
 
+For example, the following document would display answers in development mode
+but hide them when compiled with the handout option:
+\begin{verbatim}[\small] 
+\documentclass[handout]{ximera}
+\begin{document}
+\begin{problem}
+What is the answer to life, the universe, 
+and everything?
+\begin{solution}
+\[
+    \answer{42}
+\]
+\end{solution}
+\end{problem}
+\end{document}
+\end{verbatim}
+This flexibility ensures that the same source document can be used for both
+interactive online learning and traditional printed materials.
+
+NOTE THE NESTING OF ENVIRONMENTS!
 
 \section{Deploying Ximera content online}
 
-Ximera relies heavily on Git for version control and we currently require that
+Ximera relies heavily on Git for version control. We currently require that
 content be hosted in a git repository for online deployment. In particular,
 \emph{all source files must be commited to the git repository}.
 
 \subsection{Docker and Visual Studio Code}
 
 Our users are not programmers. With this in mind, we need a simple, consistent,
-deploy process
-across all platforms. The Ximera developers mostly use Linux and the initial
+deploy process across all platforms. The Ximera developers mostly use Linux and
+the initial
 deployment tools were written
 for Linux users. Supporting \macOS\ and Windows has been something of a
 challenge. Our current strategy is to use Docker and VS Code to provide a
@@ -309,8 +314,9 @@ repository
 \begin{center}
     \url{https://github.com/ximeraProject/ximeraFirstSteps}
 \end{center}
-Within this repository are directories \verb!scripts! and \verb!.vscode!.
-The HERE HERE HERE
+for testing of the set-up. Moreover within this this repository, VS Code
+configuration files are found in \verb!.vscode! and Docker scripts are found in
+!scripts!. When used with VS Code,
 
 sers can interact with it through Visual Studio Code, using a built-in
 terminal to execute commands for compiling and deploying Ximera documents.
