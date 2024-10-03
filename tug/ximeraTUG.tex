@@ -108,15 +108,23 @@ turn,
 
 \section{Authoring Content in Ximera}
 
-Ximera documents are written in \LaTeX, with the document class providing
-additional commands supporting interactive elements, such as answer boxes,
-multiple-choice questions, and other virtual manipulates.
+Ximera documents are written in \LaTeX. The \verb!ximera! document class
+provides
+additional commands supporting interactive online elements, such as answer
+boxes,
+multiple-choice questions, and other virtual manipulatives. Each document in
+the \verb!ximera! document class corresponds to a single web-page, this pages
+are ``glued'' together via a document using the \verb!xourse! document class.
 
-Authors write the content on their own machines using tools such as Visual
-Studio Code, Docker, and git for
-version control. This local setup allows authors to preview both \PDF\ and
-\HTML\ outputs before publishing the content online. Online content requires
-some organization and consistency that isn't require with regular \LaTeX\
+Authors write the content on their own machines using their own tools, using
+Docker, and git for version control.
+This local setup allows authors to preview both \PDF\ and
+\HTML\ outputs before publishing the content online.
+
+\subsection{Document set-up}
+
+Online content requires some organization and consistency that isn't required
+with regular \LaTeX\
 documents. Ximera courses are created with two \LaTeX\ documents, a
 ``main'' document of document class \verb!xourse! and all content documents,
 which use document class \verb!ximera!. All Ximera files of either document
@@ -156,10 +164,7 @@ and everything?
 \end{document}
 \end{verbatim}
 
-
-
-
-We can add functionality and generality, via user defined commands, to the
+We can add functionality via user defined commands to the
 document via a preamble, or macros document. Since every \verb!*.tex! file with
 a \verb!\documentclass! must compile, the preamble file must be accessible  by
 all files, with special attention paid to the directory paths.
@@ -172,33 +177,14 @@ construction of custom
 \PDF s, with extensive cosmetic changes. They
 \cs{pdfOnly}, \cs{prompt}, \cs{link}, \cs{activity}, \cs{practice},
 \cs{sectionstyle},\cs{chapterstyle} and the environment \verb!onlineOnly!.
+Typically authors create a second set of cosmetic macros that are loaded after
+the preamble. This second set of macros, sometimes called ``printStyles''
+redefines many commands. When inclosed in a \cs{pdfOnly} these commands have no
+effect on online deployment.
 
 \subsection{Special Ximera Commands and Environments}
 
-The Ximera documentclass comes with many packages preloaded:
-\verb!enumitem!,
-\verb!titlesec!,
-\verb!titletoc!,
-\verb!titling!,
-\verb!url!,
-\verb!xcolor!,
-\verb!tikz!,
-\verb!pgfplots!,
-\verb!fancyvrb!,
-\verb!forloop!,
-\verb!environ!,
-\verb!amssymb!,
-\verb!amsmath!,
-\verb!amsthm!,
-\verb!xifthen!,
-\verb!multido!,
-\verb!listings!,
-\verb!xkeyval!,
-\verb!comment!,
-\verb!gettitlestring!,
-\verb!nameref!,
-\verb!epstopdf!, and
-\verb!hyperref!.
+The Ximera documentclass comes with many packages preloaded, including TikZ.
 
 The documentclass also provides support for the following theorem-like
 environments:
@@ -246,7 +232,7 @@ interactive online learning and traditional printed materials.
 
 NOTE THE NESTING OF ENVIRONMENTS!
 
-\subsection{Interactive Elements and Features}
+\subsection{Answer types}
 
 Ximera provides several \LaTeX\ commands to create interactive elements within
 documents, enhancing student engagement. These commands include:
@@ -267,9 +253,20 @@ Differentiate $f(x) = x^2$.
 apply” questions, respectively. These questions can be graded automatically,
 providing instant feedback to students.
 
-\subsection{Graphics} NEEDS TO BE WRITTEN: GRAPHICS PATHS!
+\subsection{Graphics}
 
-and Visualization: Ximera integrates with external tools like Desmos
+The preferred method of including graphics in a Ximera document is by using
+TikZ. With that said, authors can also use \cs{includegraphics}. We advise
+setting graphics paths in the preamble, so that all files can find them
+regardless of their location in the file structure. Individual Ximera files as well as Xourse files 
+must be able to load the graphics. 
+
+
+
+
+\subsection{Interactive Elements}
+
+Ximera integrates with external tools like Desmos
 and GeoGebra to create dynamic, interactive graphs that students can manipulate
 in real time. Embedding a Desmos graph, for example, is as simple as:
 
@@ -278,10 +275,13 @@ in real time. Embedding a Desmos graph, for example, is as simple as:
     \desmos{zwywds7med}{800}{600}
 \end{center}
 \end{verbatim}
-Ximera also supports embedding YouTube videos, allowing educators to integrate
-multimedia resources into their lessons seamlessly. These interactive features
-enrich the learning experience, making complex STEM concepts more accessible
-and engaging for students.
+Ximera also supports similar embeddings of YouTube videos, allowing educators to integrate
+multimedia resources into their lessons. 
+
+
+
+
+
 
 \section{Deploying Ximera content online}
 
