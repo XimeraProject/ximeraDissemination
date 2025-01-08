@@ -17,3 +17,13 @@ August 7th - 9th, 2024. Indianapolis, Indiana.
 - Snapp and Fowler
 - Anna Davis "Lines of Sight" 
 - (~50 participants)
+
+
+## OCTM 2024
+-Anna Davis Booth
+- 3 teachers to sign up for my statistical process control PD next semeste
+
+## Tailor Swift bot
+- https://warwick.ac.uk/fac/sci/maths/people/staff/oleg_zaboronski/jeffrey_kuan_visit/
+- see jK10-28-2024.png
+- ~20 at talk
