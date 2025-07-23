@@ -51,7 +51,7 @@
     Ximera: Interactive Mathematics Education \\[-.1cm]
     Resources for All\hfill \theevent: \thedate \\[.1cm]
     \rule{\textwidth}{.1cm}\\[.1cm]\rmfamily
-    Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt https://github.com/ximeraProject/}
+    Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt https://ximera.org}
   }
   \fancyfoot[L]{\sffamily\tiny\textbf{
     XIMERA\quad FORM \quad \myrandom \quad GIT \quad COMMIT \quad \input{../../.git/refs/heads/master} \quad PREVIOUS \quad EDITION \quad IS \quad OBSOLETE.
@@ -63,7 +63,7 @@
     \resizebox{!}{.7em}{\input{../../wormLogo/tikzLogo.tex}}%
     \resizebox{!}{.7em}{\lsstyle \thetitle}\hfill \theevent: \thedate \\[-.1cm]
     \rule{\textwidth}{.1cm}\\[0cm]\rmfamily
-    Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt https://github.com/ximeraProject/}
+    Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt https://ximera.org}
   }
   \fancyfoot[L]{\sffamily\tiny\textbf{
     XIMERA\quad FORM \quad \myrandom \quad GIT \quad COMMIT \quad \input{../../.git/refs/heads/master} \quad PREVIOUS \quad EDITION \quad IS \quad OBSOLETE.
