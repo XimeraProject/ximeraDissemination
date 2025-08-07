@@ -1,0 +1,296 @@
+\documentclass[twocolumn]{article}
+\usepackage[letterspace=-80]{microtype}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{standalone}
+\usepackage[includehead,includefoot,margin=1cm,headheight=1cm]{geometry}
+\usepackage{stix2}
+\usepackage{gillius}
+\tikzset{>=stealth}
+\usepackage{multicol}
+\usepackage{environ}
+\usepackage{lettrine}
+\usepackage{mathtools}
+\makeatletter
+\newcommand{\mylabel}[2]{#2\def\@currentlabel{#2}\label{#1}}
+\makeatother
+
+\usepackage{qrcode}
+\qrset{height=1cm}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{title}{%
+\fancyhead[L]{\sffamily\flushleft
+\!\resizebox{!}{.05\textheight}{\input{../../wormLogo/tikzLogo.tex}}\resizebox{!}{.05\textheight}{\lsstyle
+    Tech\! Brief}\\
+Ximera: Interactive Mathematics Education  \\[-.1cm] Resources for All\hfill
+MathFest 2025\\[.1cm]
+\rule{\textwidth}{.1cm}\\[.1cm]\rmfamily
+Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt
+https://ximera.org}}
+
+\fancyfoot[L]{\sffamily\tiny\textbf{XIMERA\quad FORM \quad 1729 \quad GIT \quad
+        COMMIT \quad
+        \input{../../.git/refs/heads/master} \quad PREVIOUS \quad EDITION \quad IS
+        \quad OBSOLETE.}
+}}
+
+\fancypagestyle{main}{%
+\fancyhead[L]{\sffamily\flushleft
+\resizebox{!}{.7em}{\input{../../wormLogo/tikzLogo.tex}}\resizebox{!}{.7em}{\lsstyle
+    Tech\! Brief}\hfill MathFest 2025\\[-.1cm]
+\rule{\textwidth}{.1cm}\\[0cm]\rmfamily
+Email:~{\tt ximera@math.osu.edu} \hfill Website:~{\tt
+https://ximera.org}}
+
+\fancyfoot[L]{\sffamily\tiny\textbf{XIMERA\quad FORM \quad 1729 \quad GIT \quad
+        COMMIT \quad
+        \input{../../.git/refs/heads/master} \quad PREVIOUS \quad EDITION \quad IS
+        \quad OBSOLETE.}}}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\NewEnviron{xframe}{%
+    \begin{mdframed}[roundcorner=2pt]
+        \BODY%
+    \end{mdframed}%
+}
+
+\begin{document}
+\newgeometry{margin=1cm,headheight=3cm,includehead,includefoot}
+\pagestyle{main}
+\thispagestyle{title}
+\pagenumbering{gobble}
+\noindent
+\lettrine[lines=2]{X}{imera}, pronounced ``chimera,'' is a free and
+open-source platform offering tools for authoring and publishing
+interactive educational content, including textbooks, assessments, and
+online
+courses. Currently, Ximera materials are utilized at over a dozen
+institutions. \textbf{Ximera saves students millions of dollars each year}. The ultimate goal of this project is to
+promote sustained student success and savings.
+
+\vspace{.25cm}
+
+\begin{xframe}
+    {\sffamily\bfseries Students} interact with the \textit{content} produced within
+    Ximera, hence their experience is highly dependent on the \textit{quality} of this
+    content. Research \ref{F21} shows that \textbf{students find Ximera materials to be more readable
+    than traditional course materials and perform equivalently to those using
+    proprietary textbooks and online homework systems}. While students typically
+    encounter Ximera through their courses, many discover it via web-search and
+    use the platform as independent learners. In 2024, Ximera had over one million
+    unique visitors. Since Ximera materials are free, they are accessible to
+    anyone, regardless of enrollment in official courses.
+\end{xframe}
+\begin{xframe}
+    {\sffamily\bfseries Instructors} (who are not authors) can freely use
+    any Ximera materials,
+    \textbf{without permission}, by simply sharing the URLs of activities
+    with their students. Many first time Ximera instructors start  by
+    using online Ximera content as
+    ungraded assignments. Visit our website for an incomplete list of
+    Ximera courses that have been deployed online.
+\end{xframe}
+\begin{xframe}
+    {\sffamily\bfseries Authors}  write and store their content on their own
+    machines and GitHub repositories.
+    \textbf{Authors own their content and decide how to license their content}. From a
+    single source written in \LaTeX, Ximera generates various output: PDF
+    worksheets,
+    PDF textbooks, and	PDF solution manuals, and so on. Of most interest,
+    Ximera can
+    also create online interactive activities:
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (-1.8,.2)
+            {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-1.8,.2) {\small PDF};
+            \node at (-2,0) {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-2,0) {\small PDF};
+            \node at (-2.2,-.2)
+            {\resizebox{.65cm}{!}{\input{document.tex}}};
+            \node at (-2.2,-.2) {\small PDF};
+            \draw[->] (-.6,0) -- (-1.4,0);
+            \draw[->] (-.6,.2) -- (-1.4,.2);
+            \draw[->] (-.6,-.2) -- (-1.4,-.2);
+            \node at (0,0) {\resizebox{1cm}{!}{\input{document.tex}}};
+            \node at (0,0) {\LaTeX};
+            \draw[->] (.6,0) -- (1.4,0);
+
+            \node at (2,0) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \draw[->] (2.6,0) -- (3.4,0);
+            \node at (4,0) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (-2,-1) {Various};
+            \node at (-2,-1.4) {PDFs};
+            \node at (0,-1) {Single};
+            \node at (0,-1.4) {Source};
+            \node at (2,-1) {Deploy};
+            \node at (2,-1.4) {Server};
+            \node at (4,-1) {Students};
+            \node at (4,-1.4) {Engage};
+
+        \end{tikzpicture}
+    \end{center}
+    The source code used to produce PDFs can also create interactive online activities when deployed to a Ximera server. Students access this content via a URL or an assignment in their LMS.
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Get involved} by contributing as an instructor, author,
+    or developer. Getting started with Ximera is easy---all you need is the
+    Ximera \LaTeX\ Package, available on CTAN. For more information, visit our
+    \textit{First Steps in Ximera} GitHub repository:
+    \begin{center}
+        \qrcode{https://go.osu.edu/xfs}\\
+        \small\tt https://go.osu.edu/xfs
+    \end{center}
+    As a token of our appreciation, \textbf{consider applying for a Ximera
+        Flash-Grant Stipend:}
+    \begin{center}
+        \qrcode{https://go.osu.edu/ximera-flash-grant}\\
+        \small\tt https://go.osu.edu/ximera-flash-grant
+    \end{center}
+    Thank you for your interest in Ximera. We encourage you to contact the
+    team with any questions you may have.
+\end{xframe}
+
+
+\vspace{-.2cm}  
+
+
+\begin{xframe}
+    {\sffamily\bfseries Current development} is focused on two critical aspects
+    of Ximera: Streamlining the deployment process and expanding LTI 1.3
+    support.
+    We are leveraging Docker containers for deployment and designing an
+    assignment-grade database to seamlessly serve learners at institutions that
+    support LTI 1.3. Additionally, we are providing alternatives for
+    self-learners
+    and situations where LTI 1.3 support is not available.
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (-3,1) [cloud, draw,cloud puffs=10,cloud puff arc=120,
+                aspect=2, inner ysep=1em,scale=.8] {};
+            \node at (-3,1) {LMS};
+            \node at (-3,-1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (-3,-2) {Students with LTI};
+            \draw[->] (-3.1,-.4) -- (-3.1,.4);
+            \draw[<-] (-2.9,-.4) -- (-2.9,.4);
+            \node at (0,0) {\resizebox{1cm}{!}{\input{modulus.tex}}};
+            \node at (0,-1) {Assignment};
+            \node at (0,-1.4) {Database};
+            \draw[->] (-2,.8) -- (-.6,.2);
+            \draw[<-] (-2.1,.6) -- (-.7,0);
+            \node at (3,-1) {\resizebox{1cm}{!}{\input{server.tex}}};
+            \node at (3,-2) {Deploy};
+            \node at (3,-2.4) {Server};
+            \node at (3,1) {\resizebox{1cm}{!}{\input{computer.tex}}};
+            \node at (3,2) {Self-learner};
+            \draw[->] (3.1,-.4) -- (3.1,.4);
+            \draw[<-] (2.9,-.4) -- (2.9,.4);
+            \draw[->] (2,.8) -- (.6,.2);
+            \draw[<-] (2.1,.6) -- (.7,0);
+            \draw[->] (2.3,-1) -- (.6,-.4);
+            \draw[<-] (2.4,-.8) -- (.7,-.2);
+        \end{tikzpicture}
+    \end{center}
+\end{xframe}
+
+\vspace{-.2cm}  
+
+\begin{xframe}
+    {\sffamily\bfseries Future development} will focus on making Ximera
+    materials fully accessible to screen readers. While Ximera documents
+    currently
+    offer a basic level of accessibility, there is room for
+    improvement. Areas of development include enabling seamless navigation
+    between activities, enhancing navigation within activities, providing
+    robust
+    support for images and mathematical content, and improving the
+    accessibility of
+    our answer-box feature.
+\end{xframe}
+
+\restoregeometry
+
+
+
+\begin{xframe}
+    {\sffamily\bfseries Presentations at MathFest featuring Ximera}
+    \begin{itemize}
+        \item[\mylabel{}{[1]}] P.\ Zachlin. \textit{Using Spreadsheets to Teach Numerical Methods}. Thursday, August 7, Meeting Room 8, 10:20am--10:35am.
+        \item[\mylabel{}{[2]}] A.\ Davis. \textit{The Central Limit Theorem in the Context of Manufacturing Applications}. Thursday, August 7, Meeting Room 5, 2:40pm--2:55pm.
+        \item[\mylabel{}{[3]}] J.\ Kuan, J.\ Talamo, and B.\ Snapp. \textit{Get Started in Ximera: \LaTeX\ to Online Interactive Content}. Friday, August 8, Meeting Room 4, 2:00pm--3:20pm.
+        \item[\mylabel{}{[4]}] B.\ Snapp. \textit{Ximera}. SIGMAA on Mathematics Instruction Using the Web Business Meeting and Interactive Showcase of Open Resources. Friday, August 8, Ballroom B1, 6:00pm--7:30pm.
+    \end{itemize}
+\end{xframe}
+
+\begin{xframe}
+    {\sffamily\bfseries Selected papers featuring Ximera}
+    \begin{itemize}
+        \item[\mylabel{F21}{[5]}] J.\ Fowler et al.\ \textit{An Open-Source
+            Calculus Textbook on the Ximera Platform}. 
+        PRIMUS 31.9 (2021), pp.\ 925--939. \\%url:\texttt{https://doi.org/10.1080/10511970.4020.1781720}
+        \qrcode{https://go.osu.edu/jfx}\quad
+        {\tt  https://go.osu.edu/jfx}
+        \item[{[6]}] E.\ Miller et al.\ \textit{Increasing Active Learning in
+            Large, Tightly Coordinated Calculus Courses}.  PRIMUS 31.3--5
+        (2021), pp.\
+        371--392.\\
+        \qrcode{https://go.osu.edu/emx}
+        \quad{\tt  https://go.osu.edu/emx}
+        \item[{[7]}] S.D.\ Ryan and T.M.\ Nawalaniec. \textit{An OER Approach to
+            Linear Algebra}.  PRIMUS 32.6 (2022), pp.\ 721--737.\\
+        \qrcode{https://go.osu.edu/rnxo}
+        \quad{\tt  https://go.osu.edu/rnxo}
+        \item[{[8]}] P.\ Zachlin and A.\ Davis. \textit{A New Online
+            Educational Resource (OER)
+            for Linear Algebra}.  MAA Focus 43.3 (2023), pp.\ 36--38.\\
+        \qrcode{https://go.osu.edu/zdx}
+        \quad{\tt  https://go.osu.edu/zdx}
+    \end{itemize}
+\end{xframe}
+
+\vspace{.2cm}
+
+\begin{xframe}
+    \textbf{Funding for the Ximera Project} is provided by
+    a U.S.\ Department of Education Open Textbooks Pilot Program grant in the
+    amount of \$2,125,000, from 2024--2026, with no external funding. In the
+    past, the Ximera Project has
+    also received support from NSF Grant DUE-1245433, the Shuttleworth
+    Foundation, the Ohio State University
+    Department of Mathematics, and the Affordable Learning Exchange at OSU.
+\end{xframe}
+
+\vspace{2cm}
+
+\begin{xframe}
+    {\sffamily\bfseries Selected Ximera activities}\hfill
+
+    \def\arraystretch{3.727}%  1 is the default, change whatever you need
+    \begin{tabular}{rl}
+        \qrcode{https://go.osu.edu/prca}  & $\underset{\small\texttt{https://go.osu.edu/prca}}{\textit{Precalculus Algebra}}$        \\
+        \qrcode{https://go.osu.edu/cfa}  & $\underset{\small\texttt{https://go.osu.edu/cfa}}{\textit{Comprehensive
+        Factoring   Practice   Quiz}}$     \\
+        \qrcode{https://go.osu.edu/pcr}  & $\underset{\small\texttt{https://go.osu.edu/pcr}}{\textit{Precalculus with Review: Part I}} $                         \\        
+        \qrcode{https://go.osu.edu/pcr2}  & $\underset{\small\texttt{https://go.osu.edu/pcr2}}{\textit{Precalculus with Review: Part II}} $                         \\        
+        \qrcode{https://go.osu.edu/bca}  & $\underset{\small\texttt{https://go.osu.edu/bca}}{\textit{Business Calculus}}$                         \\
+        \qrcode{https://go.osu.edu/mc1}  &  $\underset{\small\texttt{https://go.osu.edu/mc1}}{\textit{Calculus 1}}$                             \\
+        \qrcode{https://go.osu.edu/mc2}  & $\underset{\small\texttt{https://go.osu.edu/mc2}}{\textit{Calculus 2}}$                             \\
+        \qrcode{https://go.osu.edu/mc3}  &  $\underset{\small\texttt{https://go.osu.edu/mc3}}{\textit{Calculus 3}}$                             \\
+        \qrcode{https://go.osu.edu/ila}  &  $\underset{\small\texttt{https://go.osu.edu/ila}}{\substack{\textit{\normalsize Linear Algebra} \\ \textit{\normalsize An Interactive Introduction}}}$        \\
+        \qrcode{https://go.osu.edu/idiffeq}  &  $\underset{\small\texttt{https://go.osu.edu/idiffeq}}{\substack{\textit{\normalsize Differential Equations} \\ \textit{\normalsize An Interactive Introduction}}}$        \\
+        \qrcode{https://go.osu.edu/mepr} & $\underset{\small\texttt{https://go.osu.edu/mepr}}{\textit{Systems:
+                    Number of
+        Solutions (with Parameter)}}$      \\
+        \qrcode{https://go.osu.edu/met1} & $\underset{\small\texttt{https://go.osu.edu/met1}}{\textit{Math for
+                    Elementary
+                    Teachers:	 Part I}}$ \\
+        \qrcode{https://go.osu.edu/met2} & $\underset{\small\texttt{https://go.osu.edu/met2}}{\textit{Math for
+                    Elementary
+                    Teachers:	 Part II}}$ \\
+        \qrcode{https://go.osu.edu/qcst} & $\underset{\small\texttt{https://go.osu.edu/qcst}}{\substack{\textit{\normalsize Quality Control for Introductory} \\ \textit{\normalsize Statistics and Manufacturing Courses}}}$           
+    \end{tabular}
+\end{xframe}
+
+\end{document}
